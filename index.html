@@ -1,208 +1,103 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KOTalog</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="normalize.css">
-</head>
-<body>
-    <header>
-            <div class="header__logo">
-                <a href="/">КОТалог</a>
-                <span class="header__slogan">Електронный сервис сравнения цен</span>     
-            </div>
-            <input type="text" class="header__search" placeholder="Поиск">
-            <nav>
-                <ul class="header__menu">
-                    <li><a href="/">Регистрация</a></li>                    
-                    <li><a href="/">Войти</a></li>
-                </ul>
-            </nav>      
-    </header>
+<?php
+  if(isset($_SESSION['login_user'])) {
+    header("location: profile.php"); 
+  }
+?> 
 
-    <main id="main">
-        <div class="filters">
-            <h2 class="filters__head">Фильтры</h2>
-            <ul id="filters">
-                <li class="filter"><button onclick="showFilters('n1')">Производитель</button>
-                <ul id="n1">
-                    <li class="filter__item">
-                        <label for="">1</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                    <li class="filter__item">
-                        <label for="">2</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                    <li class="filter__item">
-                        <label for="">3</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n2')">Цвет корпуса</button>
-                    <ul id="n2">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id=""> 
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n3')">Дисплей</button>
-                    <ul id="n3">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n4')">Память</button>
-                    <ul id="n4">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n5')">Цена</button>
-                    <ul id="n5">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n6')">Камера</button>
-                    <ul id="n6">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n7')">Функции</button>
-                    <ul id="n7">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n8')">Подключения</button>
-                    <ul id="n8">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n9')">Год выпуска</button>
-                    <ul id="n9">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<html>
+ <head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Auth</title>
+  <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  #box
+  {
+   width:100%;
+   max-width:500px;
+   border:1px solid #ccc;
+   border-radius:5px;
+   margin:0 auto;
+   padding:0 20px;
+   box-sizing:border-box;
+   height:270px;
+  }
 
-        <section class="devices">
-            <div class="topbar">
-                <label for="topbar-select">Категория: </label>
-                <select id="topbar-select" onchange="if (this.selectedIndex) changeCategory(this.selectedIndex);">
-                    <option value="0"> Выберете категорию: </option>
-                    <option value="1"> Телефоны </option>
-                    <option value="2"> Ноутбуки </option>
-                    <option value="3"> Мониторы </option>
-                    <option value="4"> Консоли </option>
-                    <option value="5"> Наушники </option>
-                </select>
-
-                <label for="topbar-sort">Сортировка: </label>
-                <select id="topbar-sort">
-                    <option value="1"> По цене </option>
-                    <option value="2"> По пополуярности </option>
-                    <option value="3"> etc </option>
-                </select>
-            </div>
-
-            <div class="devices__list">
-                <ul id = "category">
-                </ul>
-                <button onclick="showMore()">Показать еще...</button>
-            </div>
-        </section>
-    </main>
-
-    <script src="main.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</body>
+  .btn {
+    
+  }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <h2 align="center">Authorization form</h2><br /><br />
+   <div id="box">
+    <br />
+     <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" id="username" class="form-control" />
+     </div>
+     <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" id="password" class="form-control" />
+     </div>
+     <center>
+     <div class="form-group">
+      <input type="submit" onclick="login()" class="btn btn-success" value="Войти" />
+      <input type="submit" onclick="signup()" class="btn btn-success" value="Зарегестрироваться" />
+     </div>
+     </center>
+     <div id="error"></div>
+    <br />
+   </div>
+  </div>
+ </body>
 </html>
+
+<script type="text/javascript">
+
+function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById("password").value;
+    $.ajax({
+      url: 'test.php',
+      type: 'post',
+      data: {
+        username: username,
+        password: password,
+        login: 'login'
+      },
+      success: function(response) {
+        if(response == 'success') {
+          alert('login - success');
+          location.href = 'profile.php';
+        } else {
+          alert('login - fail');
+        }
+      } 
+    });
+  }
+function signup() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById("password").value;
+    $.ajax({
+      url: 'test.php',
+      type: 'post',
+      data: {
+        username: username,
+        password: password,
+        signup: 'signup'
+      },
+      success: function(response) {
+        if(response == 'success') {
+          alert('signup - success');
+        } else {
+          alert('signup - fail');
+        }
+      } 
+    });
+  }
+</script>
