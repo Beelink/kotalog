@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html,
+body {
+   width: 100%;
+    font-family: sans-serif;
+}
+
+/* HEADER ************************************************************************************************/
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    border-bottom: 3px dotted black;
+}
+
+.header__logo {
+    flex: 0 1 40%;
+}
+
+.header__search {
+    flex: 0 1 30%;
+}
+
+.header__menu {
+    display: inline-block;
+    width: 400px;
+    text-align: right;
+}
+
+.header__menu li{
+    display: inline-block;
+    margin-right: 10%;
+}
+
+/* HEADER_END ************************************************************************************************/
+
+/* MAIN ************************************************************************************************/
+
+#main {
+   display: flex;
+   flex-direction: row;
+}
+
+/* FILTERS ************************************************************************************************/
+
+.filters {  
+    width: 20%;
+}
+
+.filters li {
+    list-style: none;
+}
+
+.filter ul {
+    display: none;
+}
+/* FILTERS_END ************************************************************************************************/
+
+/* DEVICES ************************************************************************************************/
+
+.devices {
+    width: 80%;
+}
+
+.devices li {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+img {
+    width: 128px;
+    height: 128px;
+}
+
+/* DEVICES_END ************************************************************************************************/
+
+
+
+
