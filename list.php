@@ -1,8 +1,9 @@
 ﻿<?php
-    include('change.php');
     include('session.php');
-    if(!isset($_SESSION['login_user'])) {
-        //header("location: index.php"); 
+    if(isset($_SESSION['login_user'])) {
+        echo '<a href="logout.php">Выйти</a>';
+    }else{
+        echo '<a href="auth.php">Регистрация</a>';
     }
 ?>
 
@@ -25,9 +26,8 @@
             </div>
             <input type="text" class="header__search" placeholder="Поиск">
             <nav>
-                <ul class="header__menu">
-                    <li><a href="/">Регистрация</a></li>                    
-                    <li><a href="/">Войти</a></li>
+                <ul class="header__menu">                 
+                    <!-- <li><a href="auth.php">Войти/Регистрация</a></li> -->
                 </ul>
             </nav>      
     </header>

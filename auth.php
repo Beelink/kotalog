@@ -1,4 +1,6 @@
 <?php
+
+  session_start();
   if(isset($_SESSION['login_user'])) {
     header("location: list.php"); 
   }
@@ -16,6 +18,7 @@
     if($stmt->fetch()) {
       $_SESSION['login_user'] = $username; 
       echo "success";
+      header("location: list.php"); 
      }else
      echo "fail";
      mysqli_close($conn); 
