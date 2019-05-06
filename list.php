@@ -1,14 +1,4 @@
-﻿<?php
-    include('session.php');
-    if(isset($_SESSION['login_user'])) {
-        echo '<a href="logout.php">Выйти</a>';
-    }else{
-        echo '<a href="auth.php">Регистрация</a>';
-    }
-?>
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +17,15 @@
             <input type="text" class="header__search" placeholder="Поиск">
             <nav>
                 <ul class="header__menu">                 
-                    <!-- <li><a href="auth.php">Войти/Регистрация</a></li> -->
+                <?php
+    include('session.php');
+    if(isset($_SESSION['login_user'])) {
+        echo $_SESSION['login_user'];
+        echo '<a href="logout.php">Выйти</a>';
+    }else{
+        echo '<a href="auth.php">Регистрация/Войти</a>';
+    }
+?>
                 </ul>
             </nav>      
     </header>
