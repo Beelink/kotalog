@@ -18,14 +18,14 @@
             <nav>
                 <ul class="header__menu">                 
                 <?php
-                    include('session.php');
-                    if(isset($_SESSION['login_user'])) {
-                        echo $_SESSION['login_user'];
-                        echo '<a href="logout.php">Выйти</a>';
-                    }else{
-                        echo '<a href="auth.php">Регистрация/Войти</a>';
-                    }
-                ?>
+    include('session.php');
+    if(isset($_SESSION['login_user'])) {
+        echo $_SESSION['login_user'];
+        echo '<a href="logout.php">Выйти</a>';
+    }else{
+        echo '<a href="auth.php">Регистрация/Войти</a>';
+    }
+?>
                 </ul>
             </nav>      
     </header>
@@ -64,6 +64,25 @@
                 <p class="item-desc">'.$row['description'].'</p>';
     }
          ?>
+            </div>
+            <div id="review">
+            <?php
+                $conn = mysqli_connect("localhost", "root", "", "kotalog");
+                mysqli_set_charset($conn, "utf8");
+                $category_id = $_GET['category'];
+                $device_id = $_GET['id'];
+                $query = "SELECT reviews.header as header, reviews.text as text, reviews.date as date, users.login as 'login', reviews.mark as mark FROM reviews LEFT JOIN users ON reviews.user = users.id where reviews.device = '$device_id'";
+                $rows = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_assoc($rows)) {
+                    echo '<div class ="comment">
+                        <h3>'.$row['header'].'</h3>
+                        <span class = "comment_login">'.$row['login'].'</span>
+                        <p>'.$row['text'].'</p>
+                        <span class = "comment_date">'.$row['date'].'</span>
+                    </div>';
+                }
+                ?>
             </div>
         </section>
     </main>
