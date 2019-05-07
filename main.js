@@ -30,3 +30,7 @@ function showMore() {
     count += count;
     changeCategory(currentCategory);
 }
+
+$(document).ready(function() { 
+    changeCategory(1);
+});

@@ -16,12 +16,12 @@ body {
 
 /* HEADER ************************************************************************************************/
 header {
-    width: 100%;
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 80px;
-    border-bottom: 3px dotted black;
 }
 
 .header__logo {
@@ -55,7 +55,10 @@ header {
 /* FILTERS ************************************************************************************************/
 
 .filters {  
-    width: 20%;
+    width: 200px;
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
 }
 
 .filters li {
@@ -70,7 +73,9 @@ header {
 /* DEVICES ************************************************************************************************/
 
 .devices {
-    width: 80%;
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
 }
 
 .devices li {

@@ -7,6 +7,7 @@
     <title>KOTalog</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
+    <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,14 +19,14 @@
             <nav>
                 <ul class="header__menu">                 
                 <?php
-    include('session.php');
-    if(isset($_SESSION['login_user'])) {
-        echo $_SESSION['login_user'];
-        echo '<a href="logout.php">Выйти</a>';
-    }else{
-        echo '<a href="auth.php">Регистрация/Войти</a>';
-    }
-?>
+                    include('session.php');
+                    if(isset($_SESSION['login_user'])) {
+                        echo $_SESSION['login_user'];
+                        echo ' / <a href="logout.php">Выйти</a>';
+                    } else {
+                        echo '<a href="auth.php">Войти / Регистрация</a>';
+                    }
+                ?>
                 </ul>
             </nav>      
     </header>
@@ -184,13 +185,14 @@
         <section class="devices">
             <div class="topbar">
                 <label for="topbar-select">Категория: </label>
-                <select id="topbar-select" onchange="if (this.selectedIndex) changeCategory(this.selectedIndex);">
-                    <option value="0"> Выберете категорию: </option>
+                <select id="topbar-select" onchange="changeCategory(this.selectedIndex + 1)">
+                    
                     <option value="1"> Телефоны </option>
                     <option value="2"> Ноутбуки </option>
                     <option value="3"> Мониторы </option>
                     <option value="4"> Консоли </option>
                     <option value="5"> Наушники </option>
+                    
                 </select>
 
                 <label for="topbar-sort">Сортировка: </label>
@@ -210,6 +212,6 @@
     </main>
 
     <script src="main.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
 </body>
 </html>
