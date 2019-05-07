@@ -54,6 +54,10 @@ header {
 
 /* FILTERS ************************************************************************************************/
 
+.filters__head {
+    text-align: center;
+}
+
 .filters {  
     width: 200px;
     border: 1px solid black;
@@ -63,11 +67,19 @@ header {
 
 .filters li {
     list-style: none;
+    margin-top: 8px;
 }
 
 .filter ul {
     display: none;
 }
+
+.filter {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
 /* FILTERS_END ************************************************************************************************/
 
 /* DEVICES ************************************************************************************************/
