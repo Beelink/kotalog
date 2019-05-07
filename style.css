@@ -82,11 +82,24 @@ header {
     border: 1px solid black;
     margin: 8px;
     padding: 8px;
+    list-style: none;
 }
 
 img {
     width: 128px;
     height: 128px;
+}
+
+.devices .topbar {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+.devices .botbar {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
 }
 
 /* DEVICES_END ************************************************************************************************/

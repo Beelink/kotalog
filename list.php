@@ -206,6 +206,8 @@
             <div class="devices__list">
                 <ul id = "category">
                 </ul>
+            </div>
+            <div class="botbar">
                 <button onclick="showMore()">Показать еще...</button>
             </div>
         </section>
