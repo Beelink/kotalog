@@ -10,7 +10,10 @@ function showFilters(clsName) {
     }
 }
 
-function changeCategory(n){
+function changeCategory(){
+    n = document.getElementById('topbar-select').selectedIndex + 1;
+    sort = document.getElementById('topbar-sort').selectedIndex + 1;
+
     currentCategory = n;
     var elem = document.getElementById("category");
     $.ajax({
@@ -18,6 +21,7 @@ function changeCategory(n){
         type: 'post',
         data: {
           categoryId: n,
+          sortId: sort,
           count: count
         },
         success: function(response) {

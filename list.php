@@ -185,7 +185,7 @@
         <section class="devices">
             <div class="topbar">
                 <label for="topbar-select">Категория: </label>
-                <select id="topbar-select" onchange="changeCategory(this.selectedIndex + 1)">
+                <select id="topbar-select" onchange="changeCategory()">
                     
                     <option value="1"> Телефоны </option>
                     <option value="2"> Ноутбуки </option>
@@ -196,10 +196,10 @@
                 </select>
 
                 <label for="topbar-sort">Сортировка: </label>
-                <select id="topbar-sort">
-                    <option value="1"> По цене </option>
-                    <option value="2"> По пополуярности </option>
-                    <option value="3"> etc </option>
+                <select id="topbar-sort" onchange="changeCategory()">
+                    <option value="1"> По пополуярности </option>
+                    <option value="2"> По возрастанию цены </option>
+                    <option value="3"> По убыванию цены </option>
                 </select>
             </div>
 
