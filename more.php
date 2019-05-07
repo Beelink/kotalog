@@ -18,14 +18,14 @@
             <nav>
                 <ul class="header__menu">                 
                 <?php
-    include('session.php');
-    if(isset($_SESSION['login_user'])) {
-        echo $_SESSION['login_user'];
-        echo '<a href="logout.php">Выйти</a>';
-    }else{
-        echo '<a href="auth.php">Регистрация/Войти</a>';
-    }
-?>
+                    include('session.php');
+                    if(isset($_SESSION['login_user'])) {
+                        echo $_SESSION['login_user'];
+                        echo '<a href="logout.php">Выйти</a>';
+                    }else{
+                        echo '<a href="auth.php">Регистрация/Войти</a>';
+                    }
+                ?>
                 </ul>
             </nav>      
     </header>

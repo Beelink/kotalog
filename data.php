@@ -1,10 +1,24 @@
 <?php
   $conn = mysqli_connect("localhost", "root", "", "kotalog");
     mysqli_set_charset($conn, "utf8");
+
     $count = $_POST['count'] - 1;
     $category_id = $_POST['categoryId'];
-    $query = "SELECT devices.id as id ,brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
-              FROM devices LEFT JOIN brands ON devices.brand = brands.id where devices.category = '$category_id'";
+    $sort_id = $_POST['sortId'];
+
+    $query = "";
+
+    if($sort_id == 1) {
+      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+              FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY devices.popularity DESC";
+    } else if ($sort_id == 2) {
+      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+              FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY summary.price";
+    } else if ($sort_id == 3) {
+      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+              FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY summary.price DESC";
+    }
+    
     $rows = mysqli_query($conn, $query);
 
     $i = 0;
@@ -20,9 +34,13 @@
       }
       $txt = "";
       if($b == $c) {
-        $txt = $c." грн.";
+        if(empty($b) || empty($c)) {
+          $txt = "Нет в продаже";
+        } else {
+          $txt = $c." грн.";
+        }
       } else {
-        $txt = "от '.$b.' до '.$c.' грн.";
+        $txt = 'от '.$b.' до '.$c.' грн.';
       }
        echo '<li class="devices__item">
                 <div>
@@ -40,4 +58,6 @@
         $i++;
       }
     }
+
+    echo mysqli_error($conn);
 ?>
