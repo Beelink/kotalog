@@ -1,0 +1,27 @@
+[
+    {
+        "tag": "platform",
+        "name": "Платформа",
+        "subfilters": [ "Xbox", "PlayStation", "Nintendo", "Android" ]
+    },
+    {
+        "tag": "year",
+        "name": "Год выпуска",
+        "subfilters": [ "2016", "2017", "2018", "2019" ]
+    },
+    {
+        "tag": "touchscreen",
+        "name": "Сенсорный экран",
+        "subfilters": [ "Да", "Нет" ]
+    },
+    {
+        "tag": "wifi",
+        "name": "WI-FI модуль",
+        "subfilters": [ "Да", "Нет" ]
+    },
+    {
+        "tag": "memory",
+        "name": "Объем накопителя",
+        "subfilters": [ "250 ГБ", "500 ГБ", "1 ТБ", "2 ТБ" ]
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "tag": "type",
+        "name": "Тип устройства",
+        "subfilters": [ "Ноутбук", "Ультрабук", "Трансформер", "Нетбук" ]
+    },
+    {
+        "tag": "display-size",
+        "name": "Диагональ дисплея",
+        "subfilters": [ "11", "12", "13", "14", "15", "17" ]
+    },
+    {
+        "tag": "display-resolution",
+        "name": "Разрешение дисплея",
+        "subfilters": [ "HD", "Full HD", "Quad HD" ]
+    },
+    {
+        "tag": "display-type",
+        "name": "Тип матрицы",
+        "subfilters": [ "TN+film", "IPS", "*VA" ]
+    },
+    {
+        "tag": "display-surface",
+        "name": "Покрытие экрана",
+        "subfilters": [ "Матовое", "Гланцевое", "Антибликовое" ]
+    },
+    {
+        "tag": "touchscreen",
+        "name": "Сенсорный экран",
+        "subfilters": [ "Да", "Нет" ]
+    },
+    {
+        "tag": "processor",
+        "name": "Процессор",
+        "subfilters": [ "Intel Pentium", "Inte Celeron", "Intel Core i3", "Intel Core i5", "Intel Core i7", "AMD Ryzen 3", "AMD Ryzen 5", "AMD Ryzen 7" ]
+    },
+    {
+        "tag": "ram",
+        "name": "Оперативная память",
+        "subfilters": [ "2 ядра", "4 ядра", "6 ядра", "8 ядра" ]
+    },
+    {
+        "tag": "ram",
+        "name": "Оперативная память",
+        "subfilters": [ "4 ГБ", "6 ГБ", "8 ГБ", "16 ГБ", "32 ГБ" ]
+    },
+    {
+        "tag": "gpu",
+        "name": "Тип видеокарты",
+        "subfilters": [ "Интегрированная", "Дискретная", "SLI" ]
+    },
+    {
+        "tag": "memory-type",
+        "name": "Тип накопителя",
+        "subfilters": [ "HDD", "SSD", "eMMC", "HDD + SSD", "SSHD + SSD" ]
+    },
+    {
+        "tag": "memory",
+        "name": "Объем основного диска",
+        "subfilters": [ "250 ГБ", "500 ГБ", "750 ГБ", "1 ТБ", "2 ТБ" ]
+    }
+]

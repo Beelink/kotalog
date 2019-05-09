@@ -1,7 +1,8 @@
-<div class="header__logo">
-    <a href="list.php">КОТалог</a>
-    <span class="header__slogan">Електронный сервис сравнения цен</span>     
-</div>
+<a class="header__logo" href="list.php">
+    <img src="img/icons/cat.png" class="header__logo__image">
+    <span class="header__logo__name">Catalog</span><br>
+    <span class="header__logo__slogan">Електронный сервис сравнения цен</span>     
+</a>
 <input type="text" class="header__search" placeholder="Поиск">
 <nav>
     <ul class="header__menu">                 

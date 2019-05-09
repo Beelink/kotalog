@@ -1,4 +1,4 @@
-var count = 3;
+var count = 4;
 var currentCategory = 0;
 var currentSort = 0;
 
@@ -16,10 +16,10 @@ function changeCategory(){
     sort = document.getElementById('topbar-sort').selectedIndex + 1;
 
     if(sort != currentSort) {
-        count = 3;
+        count = 4;
     }
     if(n != currentCategory) {
-        count = 3;
+        count = 4;
     }
 
     currentCategory = n;
@@ -70,7 +70,7 @@ function changeCategory(){
                 ul.style.display = "none";
                 for(var j = 0; j < arr[i][1].subfilters.length; j++) {
                     var li = document.createElement('li');
-                    li.innerHTML = `<li><input type="checkbox" id="filter-"` + i + `-subfilter-` + j + `>` + arr[i][1].subfilters[j] + `</li>`;
+                    li.innerHTML = `<li><label><input type="checkbox" id="filter-"` + i + `-subfilter-` + j + `> ` + arr[i][1].subfilters[j] + `</label></li>`;
                     ul.appendChild(li);
                 }
                 item.appendChild(ul);

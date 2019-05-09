@@ -1,0 +1,22 @@
+[
+    {
+        "tag": "type",
+        "name": "Конструкция",
+        "subfilters": [ "Накладные", "Вкладиши", "Внутриканальные", "Один наушник" ]
+    },
+    {
+        "tag": "connection",
+        "name": "Подключение",
+        "subfilters": [ "Проводные", "Беспроводные", "Ture wireless", "Комбинированные" ]
+    },
+    {
+        "tag": "interface",
+        "name": "Интерфейс подключения",
+        "subfilters": [ "3.5 мм", "Lightning", "Type-C", "Bluetooth" ]
+    },
+    {
+        "tag": "mic",
+        "name": "Микрофон",
+        "subfilters": [ "Да", "Нет" ]
+    }
+]

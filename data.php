@@ -45,11 +45,12 @@
        echo '<li class="devices__item">
                 <div>
                     <img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
-           <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3>
-           <p class="item-desc">'.$row['description'].'</p>
-           <a href="more.php?id='.$row['id'].'&category='.$category_id.'#device" class="item-more">Подробнее</a>
-           Сравнить <input type="checkbox" name="compare" class="item-compare">
-           <a href="more.php?id='.$row['id'].'&category='.$category_id.'#review" class="item-reviews">Отзывы</a>
+                    <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3>
+                    <p class="item-desc">'.$row['description'].'</p><br><br><br><br>
+                    <a href="more.php?id='.$row['id'].'&category='.$category_id.'#device" class="item-more"><img src="img/icons/details.png"><label>Подробнее</label></a>
+                    <a href="/" class="item-more"><img src="img/icons/checkbox.png"><label>Сравнить</label></a>
+                    <a href="more.php?id='.$row['id'].'&category='.$category_id.'#review" class="item-reviews"><img src="img/icons/reviews.png"><label>Отзывы</label></a>
+                    
                 </div>
             </li>';
       if($i >= $count) {

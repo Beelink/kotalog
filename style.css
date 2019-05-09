@@ -5,31 +5,69 @@
 
 * {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-weight: normal;
+    font-family: "Century Gothic";
+    font-size: 16px;
 }
 
 html,
 body {
-   width: 100%;
+    width: 100%;
     font-family: sans-serif;
 }
 
-/* HEADER ************************************************************************************************/
+/* MAIN ************************************************************************************************/
+
+#main {
+   display: flex;
+   flex-direction: row;
+}
+
+/*
+.##....##....###....##.....##.########.....###....########.
+.###...##...##.##...##.....##.##.....##...##.##...##.....##
+.####..##..##...##..##.....##.##.....##..##...##..##.....##
+.##.##.##.##.....##.##.....##.########..##.....##.########.
+.##..####.#########..##...##..##.....##.#########.##...##..
+.##...###.##.....##...##.##...##.....##.##.....##.##....##.
+.##....##.##.....##....###....########..##.....##.##.....##
+*/
+
 header {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
+    padding: 4px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #DFF0FE;
+    border-bottom: 1px solid #4788C7; 
+}
+
+header span, header a {
+    color: #4788C7; 
+    text-decoration: none;
+    font-family: "Century Gothic";
+}
+
+.header__logo__name {
+    font-size: 32px;
+    vertical-align: super;
 }
 
 .header__logo {
     flex: 0 1 40%;
+    text-decoration: none;
 }
 
-.header__search {
+header input {
     flex: 0 1 30%;
+    font-family: "Century Gothic";
+    color: black;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #4788C7; 
+    padding: 8px;
 }
 
 .header__menu {
@@ -43,31 +81,52 @@ header {
     margin-right: 10%;
 }
 
-/* HEADER_END ************************************************************************************************/
-
-/* MAIN ************************************************************************************************/
-
-#main {
-   display: flex;
-   flex-direction: row;
-}
-
-/* FILTERS ************************************************************************************************/
+/*
+.########.####.##.......########.########.########...######.
+.##........##..##..........##....##.......##.....##.##....##
+.##........##..##..........##....##.......##.....##.##......
+.######....##..##..........##....######...########...######.
+.##........##..##..........##....##.......##...##.........##
+.##........##..##..........##....##.......##....##..##....##
+.##.......####.########....##....########.##.....##..######.
+*/
 
 .filters__head {
     text-align: center;
+    font-family: "Century Gothic";
+    color: #4788C7; 
+    font-size: 32px;
 }
 
 .filters {  
-    width: 200px;
+    width: 256px;
     border: 1px solid black;
-    margin: 8px;
+    margin: 16px;
     padding: 8px;
+    background-color: #DFF0FE;
+    border: 1px solid #4788C7; 
+    border-radius: 8px;
+    margin-right: 0;
+}
+
+.filters button {
+    border: none;
+    background-color: #4788C7;
+    color: white;
+    width: 100%;
+    padding: 4px 16px;
+    transition: 0.25s;
+    font-family: "Century Gothic";
+}
+
+.filters button:hover {
+    background-color: #DFF0FE;
+    color: #4788C7; 
 }
 
 .filters li {
     list-style: none;
-    margin-top: 8px;
+    margin: 8px;
 }
 
 .filter ul {
@@ -77,58 +136,247 @@ header {
 .filter {
     border: 1px solid black;
     margin: 8px;
-    padding: 8px;
+    border: 1px solid #4788C7; 
+    background-color: white;
 }
 
-/* FILTERS_END ************************************************************************************************/
-
-/* DEVICES ************************************************************************************************/
+/*
+.########..########.##.....##.####..######..########..######.
+.##.....##.##.......##.....##..##..##....##.##.......##....##
+.##.....##.##.......##.....##..##..##.......##.......##......
+.##.....##.######...##.....##..##..##.......######....######.
+.##.....##.##........##...##...##..##.......##.............##
+.##.....##.##.........##.##....##..##....##.##.......##....##
+.########..########....###....####..######..########..######.
+*/
 
 .devices {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
+    width: 100%;
 }
 
 .devices li {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
+    margin: 16px;
     list-style: none;
+    clear: both;
+    /* border-top: 1px solid black;
+    padding-top: 8px; */
+    position: relative;
+    display: inline-block;
+    width: calc(50% - 64px);
+    min-width: 480px;
 }
 
-#category img {
+/* .devices li:first-child {
+    border-top: none;
+} */
+
+.devices .item-img {
     width: 128px;
     height: 128px;
     float: left;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    /* border: 1px solid black; */
+    padding: 16px;
+    background-color: white;
+    /* border-radius: 8px; */
 }
 
-.devices .topbar {
-    border: 1px solid black;
-    margin: 8px;
+.topbar, .botbar {
+    background-color: #DFF0FE;
+    border: 1px solid #4788C7; 
+    border-radius: 8px;
     padding: 8px;
+    margin: 16px;
+    clear: both;
 }
 
-.devices .botbar {
-    border: 1px solid black;
-    margin: 8px;
+.topbar label {
+    color: #4788C7; 
+    font-family: "Century Gothic";
+}
+
+.topbar select {
+    background-color: #DFF0FE;
+    color: #4788C7; 
+    padding: 4px 16px;
+    margin-left: 8px;
+    margin-right: 32px;
+    transition: 0.25s;
+    border: 1px solid #4788C7; 
+    font-family: "Century Gothic";
+}
+
+.topbar select:hover {  
+    color: white;
+    background-color: #4788C7;
+}
+
+.botbar button {
+    border: 1px solid #4788C7; 
+    background-color: #DFF0FE;
+    color: #4788C7; 
+    padding: 4px 16px;
+    transition: 0.25s;
+    font-family: "Century Gothic";
+}
+
+.botbar button:hover {
+    background-color: #4788C7;
+    color: white;
+}
+
+.item-more, .item-reviews, .item-compare {
+    /* float: right; */
+    display: inline-block;
+    /* margin-left: 16px; */
+    text-decoration: none;
+    border: 1px solid #4788C7;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: #4788C7; 
+    background-color: white;
+    font-family: "Century Gothic";
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.item-reviews label, .item-more label, .item-compare label {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 12px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.devices .item-name {
+    font-family: "Century Gothic";
+    position: absolute;
+    left: 142px;
+    overflow:hidden;
+    position: absolute;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    width: calc(100% - 142px);
+    user-select: all;
+    font-size: 32px;
+}
+
+.devices .item-desc {
+    top: 48px;
+    font-family: "Century Gothic";
+    position: absolute;
+    left: 142px;
+    overflow:hidden;
+    position: absolute;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    width: calc(100% - 142px);
+    user-select: all;
+}
+
+/*
+....###....##.....##.########.##.....##
+...##.##...##.....##....##....##.....##
+..##...##..##.....##....##....##.....##
+.##.....##.##.....##....##....#########
+.#########.##.....##....##....##.....##
+.##.....##.##.....##....##....##.....##
+.##.....##..#######.....##....##.....##
+*/
+
+.auth-button {
+    border: 1px solid #4788C7; 
+    background-color: #DFF0FE;
+    color: #4788C7; 
+    padding: 4px 16px;
+    transition: 0.25s;
+    font-family: "Century Gothic";
+    margin-top: 16px;
+}
+
+.auth-button:hover {
+    background-color: #4788C7;
+    color: white;
+}
+
+.auth-input {
+    color: black;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #4788C7; 
     padding: 8px;
+    margin-bottom: 8px;
 }
 
-/* DEVICES_END ************************************************************************************************/
+.auth-head {
+    color: #4788C7;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
 
-/* REVIEWS ************************************************************************************************/
+.auth-form {
+    margin: 64px;
+    background-color: #DFF0FE;
+    display: inline-block;
+    border: 1px solid #4788C7;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.auth-form label {
+    color: #4788C7;
+}
+
+/*
+.##.....##..#######..########..########
+.###...###.##.....##.##.....##.##......
+.####.####.##.....##.##.....##.##......
+.##.###.##.##.....##.########..######..
+.##.....##.##.....##.##...##...##......
+.##.....##.##.....##.##....##..##......
+.##.....##..#######..##.....##.########
+*/
 
 #device {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
+    margin: 16px;
+    list-style: none;
+    clear: both;
+    /* border-top: 1px solid black;
+    padding-top: 8px; */
+    position: relative;
+    display: inline-block;
+    width: calc(100% - 32px);
 }
 
-#review {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
+#device .item-name {
+    font-size: 32px;
+}
+
+#device .item-img {
+    width: 256px;
+    height: 256px;
+    float: left;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+#review, #stores {
+    margin: 16px;
+    background-color: #DFF0FE;
+    display: inline-block;
+    border: 1px solid #4788C7;
+    border-radius: 8px;
+    padding: 16px;
+    width: calc(100% - 32px);
+    text-align: center;
+}
+
+#review label, #stores label {
+    color: #4788C7;
+    font-size: 32px;
 }
 
 .comment h3 {
@@ -137,33 +385,49 @@ header {
     padding: 8px;
 }
 
-#device img {
-    float: left;
-    width: 128px;
-    height: 128px;
-}
-
-/* DEVICE_END ************************************************************************************************/
-
-/* STORES ************************************************************************************************/
-
-#stores {
-    border: 1px solid black;
-    margin: 8px;
-    padding: 8px;
-}
-
 #stores table {
+    margin-top: 16px;
     width: 100%;
+    border-collapse: collapse;
 }
 
 #stores td {
-    border: 1px solid black;
+    border: 1px solid #4788C7;
     margin: 8px;
+    padding: 8px;
+    color: #4788C7;
+}
+
+#stores th {
+    color: #4788C7;
     padding: 8px;
 }
 
-/* STORES_END ************************************************************************************************/
+.stores__price, .stores__name {
+    font-size: 32px;
+}
 
+#stores a {
+    text-decoration: none;
+    border: 1px solid #4788C7;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: #4788C7; 
+    background-color: white;
+    font-family: "Century Gothic";
+    text-align: center;
+    margin-left: 8px;
+    vertical-align: super;
+}
+
+/*
+.########.##.....##.########....########.##....##.########.
+....##....##.....##.##..........##.......###...##.##.....##
+....##....##.....##.##..........##.......####..##.##.....##
+....##....#########.######......######...##.##.##.##.....##
+....##....##.....##.##..........##.......##..####.##.....##
+....##....##.....##.##..........##.......##...###.##.....##
+....##....##.....##.########....########.##....##.########.
+*/
 
 

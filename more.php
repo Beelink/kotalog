@@ -45,12 +45,13 @@
                         $txt = 'от '.$b.' до '.$c.' грн.';
                     }
                                 echo '<img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
-                                <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3>
+                                <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3><br>
                                 <p class="item-desc">'.$row['description'].'</p>';
                     }
                 ?>
             </div>
             <div id="review">
+            <label>Отзывы пользователей</label>
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
@@ -73,7 +74,15 @@
 
             <div id="stores">
                 <table id="table"> 
-                    <caption>Цена по магазинам</caption>
+                    <label>Цена по магазинам</label>
+                    <tr>
+                        <th>Логотип</th>
+                        <th>Название</th> 
+                        <th>Акция</th>
+                        <th>Гарантия</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
+                    </tr>
                     <?php
                         $conn = mysqli_connect("localhost", "root", "", "kotalog");
                         mysqli_set_charset($conn, "utf8");
@@ -92,17 +101,23 @@
                                 <img class="stores__img" src="img/stores/'.$row['store'].'.jpg" alt="store image" title = "'.$row['store'].'">
                             </td>
                             <td>
-                                <span class="stores__promotion">'.$row['store'].'</span>
+                                <span class="stores__name">'.$row['store'].'</span>
                             </td>
                             <td>
                                 <span class="stores__promotion">'.$row['promotion'].'</span>
+                            </td>
+                            <td>
                                 <span class="stores__warranty">'.$row['warranty'].'</span>
                             </td>
                             <td>
                                 <span class="stores__price">'.$row['price'].' грн.</span>
+                            </td>
+                            <td>
                                 <a class="stores__graphic" href="/">Динамика цен</a>
                                 <a class="stores__link" href="http://www.'.$row['link'].'">Перейти в магазин</a>
                             </td>
+                            
+                            
                         </tr>';
                         // if($i >= $count) {
                         //     break;

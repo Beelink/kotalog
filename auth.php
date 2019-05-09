@@ -61,30 +61,27 @@
  </head>
  <body>
  <header id="header"></header>
-  <div class="container">
-   <h2 align="center">Authorization form</h2><br /><br />
-   <div id="box">
-    <br />
-        <form action="auth.php" method="post">
-            <center>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" id="username" class="form-control" />
-                    </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" id="password" class="form-control" />
-                </div>
-                
-                <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="Войти" name="login"/>
-                    <input type="submit" class="btn btn-success" value="Зарегестрироваться" name="signup"/>
-                </div>
-            </center>
-        </form>
-    <br />
-   </div>
-  </div>
+
+ <center>
+ <form action="auth.php" method="post" class="auth-form">
+      
+      <h2 class="auth-head">Вход / Регистрация</h2>
+          <div>
+              <label>Логин</label>
+              <input type="text" name="username" id="username" class="auth-input" />
+              </div>
+          <div>
+              <label>Пароль</label>
+              <input type="password" name="password" id="password" class="auth-input" />
+          </div>
+          
+          <div>
+              <input type="submit" class="auth-button" value="Войти" name="login"/>
+              <input type="submit" class="auth-button" value="Зарегестрироваться" name="signup"/>
+          </div>
+      
+  </form>
+  </center>
  </body>
 </html>
 
