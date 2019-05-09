@@ -112,6 +112,7 @@
                     <td>
                     <span class="stores__price">'.$row['price'].'</span>
                     <a class="stores__graphic" href="/">Динамика цен</a>
+                    <a class="stores__link" href="http://www.'.$row['store'].'">Перейти в магазин</a>
                     </td>
                     </tr>';
                 }
