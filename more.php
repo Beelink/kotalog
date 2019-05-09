@@ -87,18 +87,20 @@
             </div>
 
             <div id="stores">
-            <table> 
+            <table id="table"> 
             <caption>Цена по магазинам</caption>
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
                 $device_id = $_GET['id'];
+                $count = $_POST['count'] - 1;
                 $query = "SELECT stores.name as store, brand, model, summary.price, summary.warranty as warranty, 
                 summary.promotion as promotion from summary left join stores on summary.store = stores.id left join 
                 (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
                 devices.brand = brands.id where devices.id = '$device_id') as d on summary.device = d.id";
                 $rows = mysqli_query($conn, $query);
 
+                $i = 0;
                 while($row = mysqli_fetch_assoc($rows)) {
                     echo '
                     <tr>
@@ -115,14 +117,20 @@
                     <a class="stores__link" href="http://www.'.$row['store'].'">Перейти в магазин</a>
                     </td>
                     </tr>';
+                    if($i >= $count) {
+                        break;
+                      } else {
+                        $i++;
+                      }
                 }
                 ?>
+                <button onclick="showMore()">Показать еще...</button>
                 </table>
             <div>
         </section>
     </main>
 
-    <script src="main.js"></script>
+    <script src="stores.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
