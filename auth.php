@@ -1,4 +1,5 @@
 <?php
+  include('session.php');
   if(isset($_SESSION['login_user'])) {
     header("location: list.php"); 
   }
@@ -45,7 +46,7 @@
       } 
     }
     mysqli_close($conn); 
-    }
+  }
 ?> 
 
 <html>
@@ -56,28 +57,10 @@
   <script src="jquery-3.3.1.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="load.js"></script>
  </head>
  <body>
- <header>
-    <div class="header__logo">
-        <a href="list.php">КОТалог</a>
-        <span class="header__slogan">Електронный сервис сравнения цен</span>     
-    </div>
-    <input type="text" class="header__search" placeholder="Поиск">
-    <nav>
-        <ul class="header__menu">                 
-        <?php
-            include('session.php');
-            if(isset($_SESSION['login_user'])) {
-                echo $_SESSION['login_user'];
-                echo ' / <a href="logout.php">Выйти</a>';
-            } else {
-                echo '<a href="auth.php">Войти / Регистрация</a>';
-            }
-        ?>
-        </ul>
-    </nav>      
-  </header>
+ <header id="header"></header>
   <div class="container">
    <h2 align="center">Authorization form</h2><br /><br />
    <div id="box">
@@ -105,47 +88,3 @@
  </body>
 </html>
 
-<script type="text/javascript">
-
-// function login() {
-//     var username = document.getElementById('username').value;
-//     var password = document.getElementById("password").value;
-//     $.ajax({
-//       url: 'test.php',
-//       type: 'post',
-//       data: {
-//         username: username,
-//         password: password,
-//         login: 'login'
-//       },
-//       success: function(response) {
-//         if(response == 'success') {
-//           alert('login - success');
-//           location.href = 'profile.php';
-//         } else {
-//           alert('login - fail');
-//         }
-//       } 
-//     });
-//   }
-// function signup() {
-//     var username = document.getElementById('username').value;
-//     var password = document.getElementById("password").value;
-//     $.ajax({
-//       url: 'test.php',
-//       type: 'post',
-//       data: {
-//         username: username,
-//         password: password,
-//         signup: 'signup'
-//       },
-//       success: function(response) {
-//         if(response == 'success') {
-//           alert('signup - success');
-//         } else {
-//           alert('signup - fail');
-//         }
-//       } 
-//     });
-//   }
-</script>

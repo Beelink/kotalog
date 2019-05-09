@@ -61,8 +61,9 @@ function changeCategory(){
             } 
 
             for (var i = 0; i < arr.length; i++) {
-                var item = `<li class="filter"><button onclick="showFilters('` + "filter-" + i + `')">` + arr[i][1].name + `</button>`;
-                filters.innerHTML += item;
+                var item = document.createElement('li');
+                item.classList.add('filter');
+                item.innerHTML = `<button onclick="showFilters('` + "filter-" + i + `')">` + arr[i][1].name + `</button>`;
 
                 var ul = document.createElement('ul');
                 ul.id = "filter-" + i;
@@ -72,7 +73,9 @@ function changeCategory(){
                     li.innerHTML = `<li><input type="checkbox" id="filter-"` + i + `-subfilter-` + j + `>` + arr[i][1].subfilters[j] + `</li>`;
                     ul.appendChild(li);
                 }
-                filters.appendChild(ul);
+                item.appendChild(ul);
+
+                filters.appendChild(item);
             }
         } 
     });

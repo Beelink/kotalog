@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    if(session_destroy()) {
+    include('session.php');
+    if(session_destroy())
         header("Location: list.php"); 
-    }
 ?>

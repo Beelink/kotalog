@@ -97,9 +97,10 @@ header {
     list-style: none;
 }
 
-img {
+#category img {
     width: 128px;
     height: 128px;
+    float: left;
 }
 
 .devices .topbar {
@@ -136,7 +137,33 @@ img {
     padding: 8px;
 }
 
-/* REVIEWS_END ************************************************************************************************/
+#device img {
+    float: left;
+    width: 128px;
+    height: 128px;
+}
+
+/* DEVICE_END ************************************************************************************************/
+
+/* STORES ************************************************************************************************/
+
+#stores {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+#stores table {
+    width: 100%;
+}
+
+#stores td {
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+/* STORES_END ************************************************************************************************/
 
 
 

@@ -9,28 +9,10 @@
     <link rel="stylesheet" href="normalize.css">
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <script type="text/javascript" src="load.js"></script>
 </head>
 <body>
-    <header>
-            <div class="header__logo">
-                <a href="list.php">КОТалог</a>
-                <span class="header__slogan">Електронный сервис сравнения цен</span>     
-            </div>
-            <input type="text" class="header__search" placeholder="Поиск">
-            <nav>
-                <ul class="header__menu">                 
-                <?php
-                    include('session.php');
-                    if(isset($_SESSION['login_user'])) {
-                        echo $_SESSION['login_user'];
-                        echo ' / <a href="logout.php">Выйти</a>';
-                    } else {
-                        echo '<a href="auth.php">Войти / Регистрация</a>';
-                    }
-                ?>
-                </ul>
-            </nav>      
-    </header>
+    <header id="header"></header>
 
     <main id="main">
         <div class="filters">
