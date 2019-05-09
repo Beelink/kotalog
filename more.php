@@ -7,6 +7,8 @@
     <title>KOTalog</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
+    <script src="stores.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -93,7 +95,6 @@
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
                 $device_id = $_GET['id'];
-                $count = $_POST['count'] - 1;
                 $query = "SELECT stores.name as store, brand, model, summary.price, summary.warranty as warranty, 
                 summary.promotion as promotion from summary left join stores on summary.store = stores.id left join 
                 (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
@@ -117,20 +118,17 @@
                     <a class="stores__link" href="http://www.'.$row['store'].'">Перейти в магазин</a>
                     </td>
                     </tr>';
-                    if($i >= $count) {
-                        break;
-                      } else {
-                        $i++;
-                      }
+                    // if($i >= $count) {
+                    //     break;
+                    //   } else {
+                    //     $i++;
+                    //   }
                 }
                 ?>
-                <button onclick="showMore()">Показать еще...</button>
+                <!-- <button onclick="showMore()">Показать еще...</button> -->
                 </table>
             <div>
         </section>
     </main>
-
-    <script src="stores.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
