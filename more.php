@@ -42,7 +42,7 @@
                 $rows = mysqli_query($conn, $query);
 
 
-    $i = 0;
+
     while($row = mysqli_fetch_assoc($rows)) {
       $id = $row['id'];
       $query2 = "SELECT min(price) as mi, max(price) as ma FROM summary WHERE device = '$id'";
@@ -77,14 +77,47 @@
                 while($row = mysqli_fetch_assoc($rows)) {
                     echo '<div class ="comment">
                         <h3>'.$row['header'].'</h3>
-                        <span class = "comment_login">'.$row['login'].'</span>
+                        <span class = "comment__login">'.$row['login'].'</span>
                         <p>'.$row['text'].'</p>
                         <span class = "comment_date">'.$row['date'].'</span>
-                        <img class="comment_img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
+                        <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
                     </div>';
                 }
                 ?>
             </div>
+
+            <div id="stores">
+            <table> 
+            <caption>Цена по магазинам</caption>
+            <?php
+                $conn = mysqli_connect("localhost", "root", "", "kotalog");
+                mysqli_set_charset($conn, "utf8");
+                $device_id = $_GET['id'];
+                $query = "SELECT stores.name as store, brand, model, summary.price, summary.warranty as warranty, 
+                summary.promotion as promotion from summary left join stores on summary.store = stores.id left join 
+                (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
+                devices.brand = brands.id where devices.id = '$device_id') as d on summary.device = d.id";
+                $rows = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_assoc($rows)) {
+                    echo '
+                    <tr>
+                    <td>
+                    <img class="stores__img" src="img/stores/'.$row['store'].'.jpg" alt="store image" title = "'.$row['store'].'">
+                    </td>
+                    <td>
+                    <span class="stores__promotion">'.$row['promotion'].'</span>
+                    <span class="stores__warranty">'.$row['warranty'].'</span>
+                    </td>
+                    <td>
+                    <span class="stores__price">'.$row['price'].'</span>
+                    <a class="stores__graphic" href="/">Динамика цен</a>
+                    </td>
+                    </tr>';
+                }
+                ?>
+                </table>
+            <div>
         </section>
     </main>
 
