@@ -6,7 +6,7 @@ function showFilters(clsName) {
     var el = document.getElementById(clsName);
     if (el.style.display == "none" || el.style.display == ""){
         el.style.display = "block";
-    }else {
+    } else {
         el.style.display = "none";
     }
 }
@@ -29,14 +29,53 @@ function changeCategory(){
         url: 'data.php',
         type: 'post',
         data: {
-          categoryId: n,
-          sortId: sort,
-          count: count
+            categoryId: n,
+            sortId: sort,
+            count: count
         },
         success: function(response) {
             $(elem).html(response);
         } 
-      });
+    });
+
+    $.ajax({
+        url: 'filters.php',
+        type: 'post',
+        dateType: 'text',
+        data: {
+            categoryId: n
+        },
+        success: function(response) {
+            var json = JSON.parse(response);
+            var obj = JSON.parse(Object.entries(json)[0][1]);
+            var arr = Object.keys(obj).map(function(key) {
+                return [Number(key), obj[key]];
+            });
+            // console.log(arr);
+
+            var filters = document.getElementById('filters');
+            var first = filters.firstElementChild; 
+            while (first) { 
+                first.remove(); 
+                first = filters.firstElementChild; 
+            } 
+
+            for (var i = 0; i < arr.length; i++) {
+                var item = `<li class="filter"><button onclick="showFilters('` + "filter-" + i + `')">` + arr[i][1].name + `</button>`;
+                filters.innerHTML += item;
+
+                var ul = document.createElement('ul');
+                ul.id = "filter-" + i;
+                ul.style.display = "none";
+                for(var j = 0; j < arr[i][1].subfilters.length; j++) {
+                    var li = document.createElement('li');
+                    li.innerHTML = `<li><input type="checkbox" id="filter-"` + i + `-subfilter-` + j + `>` + arr[i][1].subfilters[j] + `</li>`;
+                    ul.appendChild(li);
+                }
+                filters.appendChild(ul);
+            }
+        } 
+    });
 }
 
 function showMore() {

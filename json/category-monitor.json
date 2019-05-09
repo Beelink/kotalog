@@ -1,0 +1,47 @@
+[
+    {
+        "tag": "display-size",
+        "name": "Диагональ",
+        "subfilters": [ "19", "21", "24", "27", "32" ]
+    },
+    {
+        "tag": "display-type",
+        "name": "Тип матрицы",
+        "subfilters": [ "TN+Film", "IPS", "*VA" ]
+    },
+    {
+        "tag": "display-resolution",
+        "name": "Разрешение дисплея",
+        "subfilters": [ "HD", "Full HD", "Quad HD", "4K" ]
+    },
+    {
+        "tag": "aspect-ratio",
+        "name": "Соотношение сторон",
+        "subfilters": [ "4:3", "16:9", "16:10", "21:9" ]
+    },
+    {
+        "tag": "material",
+        "name": "Покрытие экрана",
+        "subfilters": [ "Матовое", "Глянцевое", "Антибликовое" ]
+    },
+    {
+        "tag": "frequency",
+        "name": "Частота смены кадров",
+        "subfilters": [ "60 Гц", "75 Гц", "100 Гц", "120 Гц", "144 Гц" ]
+    },
+    {
+        "tag": "curved",
+        "name": "Изогнутый экран",
+        "subfilters": [ "Да", "Нет" ]
+    },
+    {
+        "tag": "port",
+        "name": "Подключение",
+        "subfilters": [ "VGA", "HDMI", "Display Port", "Type-C", "DVI" ]
+    },
+    {
+        "tag": "adjustment",
+        "name": "Регулеровка высоты",
+        "subfilters": [ "Да", "Нет" ]
+    }
+]

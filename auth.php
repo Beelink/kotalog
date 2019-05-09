@@ -1,6 +1,4 @@
 <?php
-
-  session_start();
   if(isset($_SESSION['login_user'])) {
     header("location: list.php"); 
   }
@@ -54,30 +52,32 @@
  <head>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <title>Auth</title>
-  <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
-  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <style>
-  #box
-  {
-   width:100%;
-   max-width:500px;
-   border:1px solid #ccc;
-   border-radius:5px;
-   margin:0 auto;
-   padding:0 20px;
-   box-sizing:border-box;
-   height:270px;
-  }
-
-  .btn {
-    
-  }
-  </style>
+  <title>Catalog - Вход / Регистрация</title>
+  <script src="jquery-3.3.1.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <link rel="stylesheet" href="style.css">
  </head>
  <body>
+ <header>
+    <div class="header__logo">
+        <a href="list.php">КОТалог</a>
+        <span class="header__slogan">Електронный сервис сравнения цен</span>     
+    </div>
+    <input type="text" class="header__search" placeholder="Поиск">
+    <nav>
+        <ul class="header__menu">                 
+        <?php
+            include('session.php');
+            if(isset($_SESSION['login_user'])) {
+                echo $_SESSION['login_user'];
+                echo ' / <a href="logout.php">Выйти</a>';
+            } else {
+                echo '<a href="auth.php">Войти / Регистрация</a>';
+            }
+        ?>
+        </ul>
+    </nav>      
+  </header>
   <div class="container">
    <h2 align="center">Authorization form</h2><br /><br />
    <div id="box">

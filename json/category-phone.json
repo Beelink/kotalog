@@ -1,0 +1,72 @@
+[
+    {
+        "tag": "display-size",
+        "name": "Размер дисплея",
+        "subfilters": [ "4", "4.5", "5", "5.5", "6", "6.5" ]
+    },
+    {
+        "tag": "display-type",
+        "name": "Тип матрицы экрана",
+        "subfilters": [ "IPS", "AMOLED", "OLED" ]
+    },
+    {
+        "tag": "display-resolution",
+        "name": "Разрешение дисплея",
+        "subfilters": [ "HD", "Full HD", "Quad HD" ]
+    },
+    {
+        "tag": "os",
+        "name": "Операционная система",
+        "subfilters": [ "Чистый Android", "Huawei eMUI", "Xiaomi MIUI", "Apple iOS" ]
+    },
+    {
+        "tag": "memory",
+        "name": "Встроенная память",
+        "subfilters": [ "8 ГБ", "16 ГБ", "32 ГБ", "64 ГБ", "128 ГБ" ]
+    },
+    {
+        "tag": "ram",
+        "name": "Оперативная память",
+        "subfilters": [ "1 ГБ", "2 ГБ", "4 ГБ", "6 ГБ", "8 ГБ" ]
+    },
+    {
+        "tag": "camera",
+        "name": "Камера",
+        "subfilters": [ "2 МП", "5 МП", "8 МП", "12 МП", "16 МП", "20 МП" ]
+    },
+    {
+        "tag": "wifi",
+        "name": "WI-FI",
+        "subfilters": [ "WI-FI 4", "WI-FI 5" ]
+    },
+    {
+        "tag": "nfc",
+        "name": "NFC",
+        "subfilters": [ "Есть", "Нет" ]
+    },
+    {
+        "tag": "charge-port",
+        "name": "Вход для зарядки",
+        "subfilters": [ "Micro USB", "Type-C", "Lightning" ]
+    },
+    {
+        "tag": "year",
+        "name": "Год выпуска",
+        "subfilters": [ "2016", "2017", "2018", "2019" ]
+    },
+    {
+        "tag": "sim",
+        "name": "Лоток для симкарт",
+        "subfilters": [ "Только 1 Сим", "Только 2 Сим", "1 Сим + Карта памяти", "2 Сим + Карта памяти", "1 Сим + 1 Сим / Карта памяти" ]
+    },
+    {
+        "tag": "touch-id",
+        "name": "Сканер отпечатка пальца",
+        "subfilters": [ "Нет", "Сзади", "Спереди", "На боковом торце" ]
+    },
+    {
+        "tag": "quick-charge",
+        "name": "Быстрая зарядка",
+        "subfilters": [ "Есть", "Нет" ]
+    }
+]

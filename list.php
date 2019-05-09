@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KOTalog</title>
+    <title>Catalog - Список устройств</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
     <script src="jquery-3.3.1.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
     <header>
             <div class="header__logo">
-                <a href="/">КОТалог</a>
+                <a href="list.php">КОТалог</a>
                 <span class="header__slogan">Електронный сервис сравнения цен</span>     
             </div>
             <input type="text" class="header__search" placeholder="Поиск">
@@ -34,152 +35,7 @@
     <main id="main">
         <div class="filters">
             <h2 class="filters__head">Фильтры</h2>
-            <ul id="filters">
-                <li class="filter"><button onclick="showFilters('n1')">Производитель</button>
-                <ul id="n1">
-                    <li class="filter__item">
-                        <label for="">1</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                    <li class="filter__item">
-                        <label for="">2</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                    <li class="filter__item">
-                        <label for="">3</label>
-                        <input type="checkbox" name="" id="">
-                    </li>
-                </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n2')">Цвет корпуса</button>
-                    <ul id="n2">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id=""> 
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n3')">Дисплей</button>
-                    <ul id="n3">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n4')">Память</button>
-                    <ul id="n4">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n5')">Цена</button>
-                    <ul id="n5">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n6')">Камера</button>
-                    <ul id="n6">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n7')">Функции</button>
-                    <ul id="n7">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n8')">Подключения</button>
-                    <ul id="n8">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-                <li class="filter"><button onclick="showFilters('n9')">Год выпуска</button>
-                    <ul id="n9">
-                        <li class="filter__item">
-                            <label for="">1</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">2</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                        <li class="filter__item">
-                            <label for="">3</label>
-                            <input type="checkbox" name="" id="">
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <ul id="filters"></ul>
         </div>
 
         <section class="devices">

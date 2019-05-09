@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>KOTalog</title>
+    <title>Catalog - Об устройстве</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="normalize.css">
-    <script src="stores.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
     <header>
@@ -20,14 +19,14 @@
             <nav>
                 <ul class="header__menu">                 
                 <?php
-    include('session.php');
-    if(isset($_SESSION['login_user'])) {
-        echo $_SESSION['login_user'];
-        echo '<a href="logout.php">Выйти</a>';
-    }else{
-        echo '<a href="auth.php">Регистрация/Войти</a>';
-    }
-?>
+                    include('session.php');
+                    if(isset($_SESSION['login_user'])) {
+                        echo $_SESSION['login_user'];
+                        echo '<a href="logout.php">Выйти</a>';
+                    }else{
+                        echo '<a href="auth.php">Регистрация/Войти</a>';
+                    }
+                ?>
                 </ul>
             </nav>      
     </header>
@@ -44,7 +43,7 @@
                 $rows = mysqli_query($conn, $query);
 
 
-
+    $i = 0;
     while($row = mysqli_fetch_assoc($rows)) {
       $id = $row['id'];
       $query2 = "SELECT min(price) as mi, max(price) as ma FROM summary WHERE device = '$id'";
@@ -79,56 +78,18 @@
                 while($row = mysqli_fetch_assoc($rows)) {
                     echo '<div class ="comment">
                         <h3>'.$row['header'].'</h3>
-                        <span class = "comment__login">'.$row['login'].'</span>
+                        <span class = "comment_login">'.$row['login'].'</span>
                         <p>'.$row['text'].'</p>
                         <span class = "comment_date">'.$row['date'].'</span>
-                        <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
+                        <img class="comment_img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
                     </div>';
                 }
                 ?>
             </div>
-
-            <div id="stores">
-            <table id="table"> 
-            <caption>Цена по магазинам</caption>
-            <?php
-                $conn = mysqli_connect("localhost", "root", "", "kotalog");
-                mysqli_set_charset($conn, "utf8");
-                $device_id = $_GET['id'];
-                $query = "SELECT stores.name as store, brand, model, summary.price, summary.warranty as warranty, 
-                summary.promotion as promotion from summary left join stores on summary.store = stores.id left join 
-                (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
-                devices.brand = brands.id where devices.id = '$device_id') as d on summary.device = d.id";
-                $rows = mysqli_query($conn, $query);
-
-                $i = 0;
-                while($row = mysqli_fetch_assoc($rows)) {
-                    echo '
-                    <tr>
-                    <td>
-                    <img class="stores__img" src="img/stores/'.$row['store'].'.jpg" alt="store image" title = "'.$row['store'].'">
-                    </td>
-                    <td>
-                    <span class="stores__promotion">'.$row['promotion'].'</span>
-                    <span class="stores__warranty">'.$row['warranty'].'</span>
-                    </td>
-                    <td>
-                    <span class="stores__price">'.$row['price'].'</span>
-                    <a class="stores__graphic" href="/">Динамика цен</a>
-                    <a class="stores__link" href="http://www.'.$row['store'].'">Перейти в магазин</a>
-                    </td>
-                    </tr>';
-                    // if($i >= $count) {
-                    //     break;
-                    //   } else {
-                    //     $i++;
-                    //   }
-                }
-                ?>
-                <!-- <button onclick="showMore()">Показать еще...</button> -->
-                </table>
-            <div>
         </section>
     </main>
+
+    <script src="main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
