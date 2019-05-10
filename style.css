@@ -81,6 +81,12 @@ header input {
     margin-right: 10%;
 }
 
+header .login label {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
 /*
 .########.####.##.......########.########.########...######.
 .##........##..##..........##....##.......##.....##.##....##

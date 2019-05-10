@@ -13,7 +13,7 @@
             echo ' / <a href="profile.php">Личный кабинет</a>';
             echo ' / <a href="logout.php">Выйти</a>';
         } else {
-            echo '<a href="auth.php">Войти / Регистрация</a>';
+            echo '<a class="login" href="auth.php"><label>Войти<br>Регистрация</label><img src="img/icons/login.png"></a>';
         }
     ?>
     </ul>

@@ -14,8 +14,15 @@
     $stmt->execute();
     $stmt->bind_result($username, $password);
     $stmt->store_result();
+    $query2 = "SELECT users.id as id FROM users where login = '$username' and password = '$password' limit 1";
+    $uniqueId = null;
+    $rows = mysqli_query($conn, $query2);
+    while($row = mysqli_fetch_assoc($rows)) {
+      $uniqueId = $row['id'];
+    }
     if($stmt->fetch()) {
-      $_SESSION['login_user'] = $username; 
+      $_SESSION['login_user'] = $username;
+      $_SESSION['uniqueId'] = $uniqueId;
       echo "success";
       header("location: list.php"); 
      }else
@@ -42,7 +49,7 @@
       $query = "INSERT INTO users (login,password,role) VALUES ('$username',
         '$password', 'user')"; 
       if (mysqli_query($conn, $query)) {
-        echo "success";
+        echo "<script>alert('Пользователь с логином ".$username." зарегистрирован!');</script>";
       } 
     }
     mysqli_close($conn); 

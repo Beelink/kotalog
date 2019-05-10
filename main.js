@@ -164,6 +164,20 @@ function changeCategory() {
     });
 }
 
+function addFav(deviceId, link) {
+    $.ajax({
+        url: 'seen.php',
+        type: 'post',
+        data: {
+            deviceId: deviceId,
+            link: link,
+        },
+        success: function(response) {
+           console.log(response);
+        }
+    });
+}
+
 function showMore() {
     count += count;
     changeCategory();
