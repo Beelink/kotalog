@@ -9,13 +9,13 @@
     $query = "";
 
     if($sort_id == 1) {
-      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+      $query = "SELECT fvalues, min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
               FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY devices.popularity DESC";
     } else if ($sort_id == 2) {
-      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+      $query = "SELECT fvalues, min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
               FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY summary.price";
     } else if ($sort_id == 3) {
-      $query = "SELECT min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
+      $query = "SELECT fvalues, min(summary.price) as min_price, max(summary.price) as max_price, devices.id as id , brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' 
               FROM devices LEFT JOIN brands ON devices.brand = brands.id LEFT JOIN summary ON devices.id = summary.device WHERE devices.category = '$category_id' GROUP BY devices.id ORDER BY summary.price DESC";
     }
     
@@ -47,17 +47,18 @@
                     <img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
                     <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3>
                     <p class="item-desc">'.$row['description'].'</p><br><br><br><br>
+                    <p class="item-fvalues">'.substr($row['fvalues'], 1, -1).'</p><br>
                     <a href="more.php?id='.$row['id'].'&category='.$category_id.'#device" class="item-more"><img src="img/icons/details.png"><label>Подробнее</label></a>
-                    <a href="/" class="item-more"><img src="img/icons/checkbox.png"><label>Сравнить</label></a>
                     <a href="more.php?id='.$row['id'].'&category='.$category_id.'#review" class="item-reviews"><img src="img/icons/reviews.png"><label>Отзывы</label></a>
-                    
+                    <a href="more.php?id='.$row['id'].'&category='.$category_id.'#stores" class="item-prices"><img src="img/icons/prices.png"><label>Сравнить цены</label></a>
                 </div>
             </li>';
-      if($i >= $count) {
-        break;
-      } else {
-        $i++;
-      }
+            //  <a href="/" class="item-more"><img src="img/icons/checkbox.png"><label>Сравнить</label></a>
+      // if($i >= $count) {
+      //   break;
+      // } else {
+      //   $i++;
+      // }
     }
 
     echo mysqli_error($conn);

@@ -1,6 +1,7 @@
 var count = 4;
 var currentCategory = 0;
 var currentSort = 0;
+var currentFilters = [];
 
 function showFilters(clsName) {
     var el = document.getElementById(clsName);
@@ -11,7 +12,89 @@ function showFilters(clsName) {
     }
 }
 
-function changeCategory(){
+function clearFilters() {
+    currentFilters = [];
+
+    var filters = document.getElementsByClassName('filter');
+
+    for(var i = 0; i < filters.length; i++) {
+        var inputs = filters[i].getElementsByTagName('input');
+
+        for(var j = 0; j < inputs.length; j++) { 
+            inputs[j].checked = false;
+        }
+    }
+
+    var devices = document.getElementsByClassName('devices__item');
+
+    for(var i = 0; i < devices.length; i++) {
+        devices[i].style.display = "";
+    }
+}
+
+function applyFilters() {
+    currentFilters = [];
+    var filters = document.getElementsByClassName('filter');
+
+    for(var i = 0; i < filters.length; i++) {
+        var filterName = filters[i].getElementsByTagName('button')[0].innerHTML;
+        var subfilters = filters[i].getElementsByTagName('label');
+        var inputs = filters[i].getElementsByTagName('input');
+        var arr = [];
+        for(var j = 0; j < subfilters.length; j++) {
+            if(inputs[j].checked == true) {
+                arr.push(subfilters[j].innerHTML.split('> ')[1]);
+            }
+        }
+        if(arr.length > 0) {
+            let Data = {
+                name: filterName,
+                subfilters: arr
+            };
+            currentFilters.push(Data);
+        }
+    }
+    console.log(currentFilters);
+
+    var devices = document.getElementsByClassName('devices__item');
+
+    if(currentFilters.length > 0) {
+        for(var i = 0; i < devices.length; i++) {
+            var fvalues = devices[i].getElementsByClassName('item-fvalues')[0].innerHTML;
+
+            var main = true;
+            
+            for(var j = 0; j < currentFilters.length; j++) {
+                var okay = false;
+
+                for(var k = 0; k < currentFilters[j].subfilters.length; k++) {
+                    var str = '"' + currentFilters[j].name + '": "' + currentFilters[j].subfilters[k] + '"';
+                    if(fvalues.indexOf(str) != -1) {
+                        okay = true;
+                    }
+                }
+
+                if(okay == false) {
+                    main = false;
+                }
+            }
+
+            if(main) {
+                devices[i].style.display = "";
+            } else {
+                devices[i].style.display = "none";
+            }
+        }
+    } else {
+        for(var i = 0; i < devices.length; i++) {
+            devices[i].style.display = "";
+        }
+    }
+}
+
+function changeCategory() {
+    clearFilters();
+
     n = document.getElementById('topbar-select').selectedIndex + 1;
     sort = document.getElementById('topbar-sort').selectedIndex + 1;
 

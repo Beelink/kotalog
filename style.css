@@ -93,13 +93,18 @@ header input {
 
 .filters__head {
     text-align: center;
+    
+}
+
+.filters__head label {
     font-family: "Century Gothic";
     color: #4788C7; 
     font-size: 32px;
+    vertical-align: super;
 }
 
 .filters {  
-    width: 256px;
+    width: 300px;
     border: 1px solid black;
     margin: 16px;
     padding: 8px;
@@ -134,10 +139,36 @@ header input {
 }
 
 .filter {
-    border: 1px solid black;
     margin: 8px;
     border: 1px solid #4788C7; 
     background-color: white;
+}
+
+.apply-button, .clear-button {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #DFF0FE;
+    color: #4788C7; 
+    border: 1px solid #4788C7; 
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.apply-button {
+    font-size: 32px;
+}
+
+.apply-button:hover, .clear-button:hover {
+    background-color: #4788C7;
+    color: #DFF0FE; 
+    cursor: pointer;
+}
+
+hr {
+    border: 1px solid #4788C7;
+    margin: 16px;
 }
 
 /*
@@ -162,8 +193,7 @@ header input {
     padding-top: 8px; */
     position: relative;
     display: inline-block;
-    width: calc(50% - 64px);
-    min-width: 480px;
+    width: calc(100% - 32px);
 }
 
 /* .devices li:first-child {
@@ -226,7 +256,7 @@ header input {
     color: white;
 }
 
-.item-more, .item-reviews, .item-compare {
+.item-more, .item-reviews, .item-compare, .item-prices {
     /* float: right; */
     display: inline-block;
     /* margin-left: 16px; */
@@ -241,7 +271,7 @@ header input {
     margin-bottom: 8px;
 }
 
-.item-reviews label, .item-more label, .item-compare label {
+.item-reviews label, .item-more label, .item-compare label, .item-prices label {
     display: inline-block;
     vertical-align: top;
     margin-top: 12px;

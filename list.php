@@ -16,8 +16,16 @@
 
     <main id="main">
         <div class="filters">
-            <h2 class="filters__head">Фильтры</h2>
+            <div class="filters__head">
+                <img src="img/icons/filter.png">
+                <label>Фильтры</label>
+            </div>
+            <hr>
             <ul id="filters"></ul>
+            <hr>
+            <div onclick="applyFilters()" class="apply-button">Применить</div>
+            <div onclick="clearFilters()" class="clear-button">Очистить фильтры</div>
+           
         </div>
 
         <section class="devices">
@@ -45,9 +53,9 @@
                 <ul id = "category">
                 </ul>
             </div>
-            <div class="botbar">
+            <!-- <div class="botbar">
                 <button onclick="showMore()">Показать еще...</button>
-            </div>
+            </div> -->
         </section>
     </main>
 
