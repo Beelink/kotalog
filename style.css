@@ -395,45 +395,67 @@ hr {
 */
 
 .auth-button {
-    border: 1px solid #4788C7; 
-    background-color: #DFF0FE;
-    color: #4788C7; 
+    border: var(--px-border) solid var(--color-top);
+    background-color: transparent;
+    color: var(--color-top);
     padding: 4px 16px;
     transition: 0.25s;
     margin-top: 16px;
 }
 
 .auth-button:hover {
-    background-color: #4788C7;
-    color: white;
+    background-color: var(--color-active);
+    cursor: pointer;
+}
+
+.auth-button img {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    margin-right: 8px;
+}
+
+.auth-button label {
+    font-size: 24px;
+    vertical-align: super;
+    cursor: pointer;
 }
 
 .auth-input {
     color: black;
     height: 32px;
-    border-radius: 8px;
-    border: 1px solid #4788C7; 
+    border-radius: var(--px-radius);
+    border: var(--px-border) solid var(--color-top);
     padding: 8px;
     margin-bottom: 8px;
+    transition: var(--speed-trans);
+    width: 100%;
+    outline: none;
+    text-align: center;
+}
+
+.auth-input:hover {
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
 }
 
 .auth-head {
-    color: #4788C7;
-    font-size: 32px;
+    color: var(--color-top);
+    font-size: 24px;
     margin-bottom: 32px;
 }
 
 .auth-form {
-    margin: 64px;
-    background-color: #DFF0FE;
+    margin: 32px;
+    background-color: var(--color-main);
     display: inline-block;
-    border: 1px solid #4788C7;
-    border-radius: 8px;
+    border: var(--px-border) solid var(--color-top);
+    border-radius: var(--px-radius);
     padding: 16px;
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
 }
 
 .auth-form label {
-    color: #4788C7;
+    color: var(--color-top);
 }
 
 /*

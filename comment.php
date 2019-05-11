@@ -17,4 +17,8 @@
     $result = mysqli_query($conn, $query);
 
     mysqli_close($conn);
+
+    if (isset($_SERVER["HTTP_REFERER"])) {
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
+    }
 ?>

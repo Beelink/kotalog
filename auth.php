@@ -74,17 +74,19 @@
       
       <h2 class="auth-head">Вход / Регистрация</h2>
           <div>
-              <label>Логин</label>
+              <label>Логин</label><br>
               <input type="text" name="username" id="username" class="auth-input" />
               </div>
           <div>
-              <label>Пароль</label>
+              <label>Пароль</label><br>
               <input type="password" name="password" id="password" class="auth-input" />
           </div>
           
           <div>
-              <input type="submit" class="auth-button" value="Войти" name="login"/>
-              <input type="submit" class="auth-button" value="Зарегестрироваться" name="signup"/>
+              <!-- <input type="submit" class="auth-button" value="Войти" name="login"/> -->
+              <button type="submit" class="auth-button"name="login" ><img src="img/icons/login.png" ><label>Войти</label></button>
+              <button type="submit" class="auth-button"name="signup" ><img src="img/icons/register.png" ><label>Создать</label></button>
+              <!-- <input type="submit" class="auth-button" value="Зарегестрироваться" name="signup"/> -->
           </div>
       
   </form>
