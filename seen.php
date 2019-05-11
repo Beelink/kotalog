@@ -8,18 +8,14 @@
     $link = $_POST['link'];
     $deviceId = $_POST['deviceId'];
 
-    $query = "INSERT into favorites (link, user, device) values ('$link', '$user', '$deviceId')";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-        echo "success";
-    } else 
-    {
-        echo "error";
+    $sel = "SELECT * FROM favorites WHERE favorites.device = '$deviceId'";
+    $res = mysqli_query($conn, $sel); 
+    $num = mysqli_num_rows($res);
+    
+    if($num == 0) {
+        $query = "INSERT into favorites (link, user, device) values ('$link', '$user', '$deviceId')";
+        $result = mysqli_query($conn, $query);
     }
-
-
-
 
 
     mysqli_close($conn);
