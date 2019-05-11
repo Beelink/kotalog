@@ -16,14 +16,11 @@
 
     <main id="main">
         <div class="filters">
-            <div class="filters__head">
-                <img src="img/icons/filter.png">
-                <label>Фильтры</label>
-            </div>
+            <div class="filters__head"><img src="img/icons/filter.png"><label>Фильтры</label></div>
             <hr>
             <ul id="filters"></ul>
             <hr>
-            <div onclick="applyFilters()" class="apply-button">Применить</div>
+            <div onclick="applyFilters()" class="apply-button"><img src="img/icons/apply.png"><label>Применить</label></div>
             <div onclick="clearFilters()" class="clear-button">Очистить фильтры</div>
            
         </div>

@@ -52,6 +52,7 @@
             </div>
             <div id="review">
             <label>Отзывы пользователей</label>
+            <hr>
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
@@ -100,6 +101,7 @@
             <div id="stores">
                 <table id="table"> 
                     <label>Цена по магазинам</label>
+                    <hr>
                     <tr>
                         <th>Логотип</th>
                         <th>Название</th> 

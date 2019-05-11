@@ -1,7 +1,9 @@
 <a class="header__logo" href="list.php">
-    <img src="img/icons/cat.png" class="header__logo__image">
-    <span class="header__logo__name">Catalog</span><br>
-    <span class="header__logo__slogan">Електронный сервис сравнения цен</span>     
+    <img src="img/icons/cat.png">
+    <div>
+        <label>Catalog</label><br>
+        <span class="header__logo__slogan">Електронный сервис сравнения цен</span>   
+    </div>
 </a>
 <input type="text" class="header__search" placeholder="Поиск">
 <nav>

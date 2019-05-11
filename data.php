@@ -47,7 +47,7 @@
                     <img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
                     <h3 class="item-name">'.$row['name'].' '.$row['model'].'</h3>
                     <label class="item-price">'.$txt.'</label>
-                    <p class="item-desc">'.$row['description'].'</p><br><br><br><br><br><br>
+                    <p class="item-desc">'.$row['description'].'</p><br><br><br><br><br><br><br>
                     <p class="item-fvalues">'.substr($row['fvalues'], 1, -1).'</p><br>
                     <a onclick = addFav("'.$row['id'].'","more.php?id='.$row['id'].'&category='.$category_id.'") href="more.php?id='.$row['id'].'&category='.$category_id.'#device" class="item-more"><img src="img/icons/details.png"><label>Подробнее</label></a>
                     <a onclick = addFav("'.$row['id'].'","more.php?id='.$row['id'].'&category='.$category_id.'") href="more.php?id='.$row['id'].'&category='.$category_id.'#review" class="item-reviews"><img src="img/icons/reviews.png"><label>Отзывы</label></a>
