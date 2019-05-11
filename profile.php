@@ -10,6 +10,7 @@
         <script src="jquery-3.3.1.min.js"></script>
         <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
         <script type="text/javascript" src="load.js"></script>
+        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <header id="header"></header>
@@ -35,7 +36,8 @@
                  echo '<a class = seen__ref href='.$row['link'].'> 
                  <img class="seen__img" src="img/'.$row['category'].'/'.$row['brand'].' = '.$row['model'].'.png" alt="phone image">
                  <h4 class ="seen__sign">'.$row['brand'].' '.$row['model'].'</h4>
-                 <span class="seen__price">'.$row['price'].'</span></a>';
+                 <span class="seen__price">'.$row['price'].' грн.</span></a>
+                 <button class="seen__button" onclick="deleteSeen('.$row['fid'].')">Удалить</button>';
              }
             ?>
             </div>

@@ -178,6 +178,21 @@ function addFav(deviceId, link) {
     });
 }
 
+function deleteSeen(id){
+    $.ajax({
+        url: 'delete.php',
+        type: 'post',
+        data: {
+            id: id,
+        },
+        success: function(response) {
+           console.log(response);
+           location.reload();
+        //    $("#seen").load("#seen");
+        }
+    });
+}
+
 function showMore() {
     count += count;
     changeCategory();
