@@ -10,7 +10,7 @@
     $userId = $_SESSION['uniqueId'];
     $userName = $_SESSION['login_user'];
     date_default_timezone_set('Europe/Kiev');
-    $date = date('m-d-Y h:i:s a', time());
+    $date = date('Y-m-d H:i:s');;
 
     $query = "INSERT into reviews (device, text, user, mark, header, date) values
      ('$deviceId', '$text', '$userId', '$mark', '$userName', '$date')";
