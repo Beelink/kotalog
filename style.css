@@ -87,6 +87,12 @@ header .login label {
     cursor: pointer;
 }
 
+header .profile {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+    vertical-align: super;
+}
 /*
 .########.####.##.......########.########.########...######.
 .##........##..##..........##....##.......##.....##.##....##
@@ -173,7 +179,7 @@ header .login label {
 }
 
 hr {
-    border: 1px solid #4788C7;
+    border: 0.5px solid #4788C7;
     margin: 16px;
 }
 
@@ -195,13 +201,11 @@ hr {
     margin: 16px;
     list-style: none;
     clear: both;
-    /* border-top: 1px solid black;
-    padding-top: 8px; */
+
     position: relative;
     display: inline-block;
     width: calc(100% - 32px);
 }
-
 /* .devices li:first-child {
     border-top: none;
 } */
@@ -263,15 +267,13 @@ hr {
 }
 
 .item-more, .item-reviews, .item-compare, .item-prices {
-    /* float: right; */
+    background-color: #DFF0FE;
     display: inline-block;
-    /* margin-left: 16px; */
     text-decoration: none;
     border: 1px solid #4788C7;
     padding: 4px 16px;
     border-radius: 8px;
     color: #4788C7; 
-    background-color: white;
     font-family: "Century Gothic";
     text-align: center;
     margin-bottom: 8px;
@@ -300,7 +302,7 @@ hr {
 }
 
 .devices .item-desc {
-    top: 48px;
+    top: 80px;
     font-family: "Century Gothic";
     position: absolute;
     left: 142px;
@@ -311,6 +313,15 @@ hr {
     text-overflow: ellipsis;
     width: calc(100% - 142px);
     user-select: all;
+}
+
+.devices .item-price {
+    position: absolute;
+    left: 142px;
+    top: 40px;
+    font-size: 24px;
+    border: 1px solid black;
+    padding: 0 16px;
 }
 
 /*
@@ -391,6 +402,12 @@ hr {
     font-size: 32px;
 }
 
+#device .item-price {
+    font-size: 24px;
+    border: 1px solid black;
+    padding: 0 16px;
+}
+
 #device .item-img {
     width: 256px;
     height: 256px;
@@ -412,7 +429,7 @@ hr {
 
 #review label, #stores label {
     color: #4788C7;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .comment h3 {
@@ -454,6 +471,69 @@ hr {
     text-align: center;
     margin-left: 8px;
     vertical-align: super;
+}
+
+/*
+.########..########...#######..########.####.##.......########
+.##.....##.##.....##.##.....##.##........##..##.......##......
+.##.....##.##.....##.##.....##.##........##..##.......##......
+.########..########..##.....##.######....##..##.......######..
+.##........##...##...##.....##.##........##..##.......##......
+.##........##....##..##.....##.##........##..##.......##......
+.##........##.....##..#######..##.......####.########.########
+*/
+
+#seen {
+    margin: 16px;
+    background-color: #DFF0FE;
+    display: inline-block;
+    border: 1px solid #4788C7;
+    border-radius: 8px;
+    padding: 16px;
+    width: calc(100% - 32px);
+    text-align: center;
+}
+
+#seen label {
+    color: #4788C7;
+    font-size: 24px;
+}
+
+#seen img {
+    width: 128px;
+    height: 128px;
+}
+
+#seen a {
+    text-decoration: none;
+    color: #4788C7;
+}
+
+.seen__sign {
+    font-size: 24px;
+}
+
+.seen-item {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #4788C7;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 4px;
+}
+
+.seen__button {
+    text-decoration: none;
+    border: 1px solid #4788C7;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: #4788C7; 
+    background-color: white;
+    font-family: "Century Gothic";
+    text-align: center;
+    margin-top: 8px;
+    vertical-align: super;
+    cursor: pointer;
 }
 
 /*

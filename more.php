@@ -23,10 +23,8 @@
                     mysqli_set_charset($conn, "utf8");
                     $category_id = $_GET['category'];
                     $device_id = $_GET['id'];
-                    $query = "SELECT devices.id as id ,brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' FROM devices LEFT JOIN brands ON devices.brand = brands.id where devices.category = '$category_id' and devices.id = '$device_id'";
+                    $query = "SELECT fvalues, devices.id as id ,brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' FROM devices LEFT JOIN brands ON devices.brand = brands.id where devices.category = '$category_id' and devices.id = '$device_id'";
                     $rows = mysqli_query($conn, $query);
-
-
 
                     while($row = mysqli_fetch_assoc($rows)) {
                     $id = $row['id'];
@@ -40,18 +38,27 @@
                     }
                     $txt = "";
                     if($b == $c) {
-                        $txt = $c." грн.";
-                    } else {
+                        if(empty($b) || empty($c)) {
+                          $txt = "Нет в продаже";
+                        } else {
+                          $txt = $c." грн.";
+                        }
+                      } else {
                         $txt = 'от '.$b.' до '.$c.' грн.';
-                    }
-                                echo '<img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
-                                <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3><br>
-                                <p class="item-desc">'.$row['description'].'</p>';
+                      }
+                                echo '<div>
+                                <img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
+                                <h3 class="item-name">'.$row['name'].' '.$row['model'].'</h3><br>
+                                <label class="item-price">'.$txt.'</label><br><br>
+                                <p class="item-desc">'.$row['description'].'</p><br>
+                                <p class="item-fvalues">'.substr($row['fvalues'], 1, -1).'</p><br>
+                            </div>';
                     }
                 ?>
             </div>
             <div id="review">
             <label>Отзывы пользователей</label>
+            <hr>
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
@@ -75,6 +82,7 @@
             <div id="stores">
                 <table id="table"> 
                     <label>Цена по магазинам</label>
+                    <hr>
                     <tr>
                         <th>Логотип</th>
                         <th>Название</th> 
