@@ -79,6 +79,8 @@
                 '<div id="myReview">
                     <form id="data" action="comment.php" method="post">
                         <input name="deviceId" value="'.$deviceId.'" style="display:none;">
+                        <p><b>Тема отзыва:</b></p>
+                        <input type="text" name="header" requried>
                         <p><b>Введите ваш отзыв:</b></p>
                         <p><textarea rows="10" cols="45" name="text"  required></textarea></p>
                         <p><b>Ваша оценка:</b></p>
