@@ -70,7 +70,7 @@ header span, header a {
 }
 
 .header__logo label {
-    font-size: 24px;
+    font-size: 32px;
     vertical-align: super;
     cursor: pointer;
 }
@@ -348,22 +348,7 @@ hr {
     font-size: 24px;
 }
 
-.devices .item-name {
-    position: absolute;
-    left: 160px;
-    overflow:hidden;
-    position: absolute;
-    white-space: nowrap;
-    word-break: keep-all;
-    text-overflow: ellipsis;
-    width: calc(100% - 160px);
-    user-select: all;
-    font-size: 24px;
-    top: 16px;
-}
-
-.devices .item-desc {
-    top: 120px;
+.devices .item-desc, .devices .item-fvalues, .devices .item-name {
     position: absolute;
     left: 160px;
     overflow:hidden;
@@ -373,6 +358,19 @@ hr {
     text-overflow: ellipsis;
     width: calc(100% - 192px);
     user-select: all;
+}
+
+.devices .item-name {
+    top: 16px;
+    font-size: 32px;
+}
+
+.devices .item-desc {
+    top: 100px;
+}
+
+.devices .item-fvalues {
+    top: 120px;
 }
 
 .devices .item-price {
@@ -513,10 +511,30 @@ hr {
     font-size: 24px;
 }
 
-.comment h3 {
-    border: 1px solid black;
+.comment {
+    border: var(--px-border) solid var(--color-top);
     margin: 8px;
+    display: inline-block;
+    padding: 16px;
+    background-color: white;
+    width: calc(50% - 32px);
+    text-align: left;
+}
+
+.comment img {
+    float: left;
+    margin: 8px;
+}
+
+.comment h3 {
+    border: var(--px-border) solid var(--color-top);
     padding: 8px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.comment__login {
+    font-size: 24px;
 }
 
 #stores table {
