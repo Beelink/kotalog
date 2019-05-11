@@ -16,10 +16,10 @@
 
 :root{
     --color-back: rgba(255, 255, 255);
-    --color-main: #F1F4F5;
+    --color-main: #d2dae2;
     --color-top: black;
     --color-shadow: rgba(0, 0, 0, 0.5);
-    --color-active: rgba(0, 0, 0, 0.15);
+    --color-active: #808e9b;
 
     --px-shadow: 8px;
     --px-border: 2px;
@@ -203,6 +203,7 @@ header .profile {
     text-align: center;
     transition: 0.25s;
     cursor: pointer;
+    background-color: white;
 }
 
 .apply-button label {
@@ -287,7 +288,7 @@ hr {
 }
 
 .topbar select {
-    background-color: transparent;
+    background-color: white;
     color: var(--color-top); 
     padding: 4px 16px;
     margin-left: 8px;
@@ -330,6 +331,7 @@ hr {
     color: var(--color-top);
     text-align: center;
     margin-right: 8px;
+    background-color: white;
     /* box-shadow: 0 0 var(--px-shadow) var(--color-shadow); */
     transition: var(--speed-trans);
 }
@@ -394,7 +396,7 @@ hr {
 
 .auth-button {
     border: var(--px-border) solid var(--color-top);
-    background-color: transparent;
+    background-color: white;
     color: var(--color-top);
     padding: 4px 16px;
     transition: 0.25s;
@@ -483,32 +485,67 @@ hr {
 
 #device .item-price {
     font-size: 24px;
-    border: 1px solid black;
+    border: var(--px-border) solid var(--color-top);
     padding: 0 16px;
 }
 
 #device .item-img {
+    padding: 16px;
     width: 256px;
     height: 256px;
     float: left;
     margin-right: 16px;
-    margin-bottom: 16px;
 }
 
-#review, #stores {
-    margin: 16px;
-    background-color: #DFF0FE;
+#review, #stores, #myReview {
+    margin: 16px 0;
+    background-color: var(--color-main);
     display: inline-block;
-    border: 1px solid #4788C7;
-    border-radius: 8px;
+    border: var(--px-border) solid var(--color-top);
+    border-left: none;
+    border-right: none;
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100%;
     text-align: center;
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
 }
 
-#review label, #stores label {
-    color: #4788C7;
+#review label, #stores label, #myReview label {
+    color: var(--color-top);
     font-size: 24px;
+}
+
+#myReview select {
+    background-color: white;
+    color: var(--color-top); 
+    padding: 4px 16px;
+    margin-left: 8px;
+    margin-right: 32px;
+    transition: 0.25s;
+    border: var(--px-border) solid var(--color-top); 
+    /* border-radius: var(--px-radius); */
+}
+
+#myReview select:hover {  
+    background-color: var(--color-active);
+}
+
+#myReview button {
+    color: var(--color-top); 
+    background-color: white;
+    padding: 4px 16px;
+    border: var(--px-border) solid var(--color-top); 
+    transition: var(--speed-trans);
+}
+
+#myReview button:hover {
+    background-color: var(--color-active);
+}
+
+#myReview input, #myReview textarea {
+    border: var(--px-border) solid var(--color-top); 
+    padding: 8px;
+    /* width: 100%; */
 }
 
 .comment {
@@ -519,6 +556,7 @@ hr {
     background-color: white;
     width: calc(50% - 32px);
     text-align: left;
+    vertical-align: top;
 }
 
 .comment img {
@@ -544,14 +582,15 @@ hr {
 }
 
 #stores td {
-    border: 1px solid #4788C7;
-    margin: 8px;
+    border: var(--color-top) solid var(--px-border);
+    margin: 16px;
     padding: 8px;
-    color: #4788C7;
+    color: var(--color-top);
+    background-color: white;
 }
 
 #stores th {
-    color: #4788C7;
+    color: var(--color-top);
     padding: 8px;
 }
 
@@ -561,10 +600,9 @@ hr {
 
 #stores a {
     text-decoration: none;
-    border: 1px solid #4788C7;
+    border: var(--px-border) solid var(--color-top);
     padding: 4px 16px;
-    border-radius: 8px;
-    color: #4788C7; 
+    color: var(--color-top);
     background-color: white;
     text-align: center;
     margin-left: 8px;

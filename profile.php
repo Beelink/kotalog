@@ -30,7 +30,7 @@
                 devices.id) as q2 on q1.device = q2.lol";
             
              $rows = mysqli_query($conn, $query);
-
+             
              while($row = mysqli_fetch_assoc($rows)) {
                  echo '<div class="seen-item">
                     <a class = seen__ref href='.$row['link'].'> 

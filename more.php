@@ -61,6 +61,8 @@
             <label>Отзывы пользователей</label>
             <hr>
             <?php
+            include_once('session.php');
+
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
                 $category_id = $_GET['category'];
@@ -70,28 +72,29 @@
 
                 while($row = mysqli_fetch_assoc($rows)) {
                     echo '<div class ="comment">
+                        <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
                         <h3>'.$row['header'].'</h3>
                         <span class = "comment__login">'.$row['login'].'</span>
-                        <p>'.$row['text'].'</p>
+                        <p>'.$row['text'].'</p><br>
                         <span class = "comment_date">'.$row['date'].'</span>
-                        <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
                     </div>';
                 }
                 ?>
+                </div>
                 <?php
-                include_once('session.php');
                 $deviceId = $_GET['id'];
                 if(isset($_SESSION['uniqueId'])) {
                     echo
                 '<div id="myReview">
+                    <label>Оставить отзыв</label>
+                    <hr>
                     <form id="data" action="comment.php" method="post">
                         <input name="deviceId" value="'.$deviceId.'" style="display:none;">
-                        <p><b>Тема отзыва:</b></p>
-                        <input type="text" name="header" requried>
-                        <p><b>Введите ваш отзыв:</b></p>
+                        <p><b>Тема отзыва:</b></p><br>
+                        <input type="text" name="header" requried><br><br>
+                        <p><b>Введите ваш отзыв:</b></p><br>
                         <p><textarea rows="10" cols="45" name="text"  required></textarea></p>
-                        <p><b>Ваша оценка:</b></p>
-                        <select name ="mark">
+                        Ваша оценка: <select name ="mark">
 
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -100,12 +103,12 @@
                             <option value="5"> 5 </option>
                             
                         </select>
-                        <p><button>Отправить</button></p>
+                        <button>Отправить</button>
                     </form>
                 </div>';
                 }
                 ?>
-            </div>
+            
 
             <div id="stores">
                 <table id="table"> 
