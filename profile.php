@@ -50,7 +50,7 @@
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
                 $uniqueId = $_SESSION['uniqueId'];
-                $query = "SELECT reviews.header as header, reviews.text as text, reviews.date as date, users.login as 'login', reviews.mark as mark FROM reviews LEFT JOIN users ON reviews.user = '$uniqueId'";
+                $query = "SELECT reviews.header as header, reviews.text as text, reviews.date as date, users.login as login, reviews.mark as mark FROM reviews LEFT JOIN users ON reviews.user = users.id where reviews.user = '$uniqueId'";
                 $rows = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_assoc($rows)) {
                     echo '<div class ="comment">
