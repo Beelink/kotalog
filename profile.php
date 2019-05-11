@@ -55,7 +55,7 @@
                 <span class = "comment__login">'.$row['login'].'</span>
                 <p>'.$row['text'].'</p>
                 <span class = "comment_date">'.$row['date'].'</span>
-                <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
+                <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;">
             </div>';
              }
             ?>

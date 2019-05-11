@@ -23,8 +23,10 @@
                     mysqli_set_charset($conn, "utf8");
                     $category_id = $_GET['category'];
                     $device_id = $_GET['id'];
-                    $query = "SELECT fvalues, devices.id as id ,brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' FROM devices LEFT JOIN brands ON devices.brand = brands.id where devices.category = '$category_id' and devices.id = '$device_id'";
+                    $query = "SELECT devices.id as id ,brands.name as 'name', devices.description as 'description', devices.model as 'model', devices.popularity as 'popularity' FROM devices LEFT JOIN brands ON devices.brand = brands.id where devices.category = '$category_id' and devices.id = '$device_id'";
                     $rows = mysqli_query($conn, $query);
+
+
 
                     while($row = mysqli_fetch_assoc($rows)) {
                     $id = $row['id'];
@@ -38,27 +40,18 @@
                     }
                     $txt = "";
                     if($b == $c) {
-                        if(empty($b) || empty($c)) {
-                          $txt = "Нет в продаже";
-                        } else {
-                          $txt = $c." грн.";
-                        }
-                      } else {
+                        $txt = $c." грн.";
+                    } else {
                         $txt = 'от '.$b.' до '.$c.' грн.';
-                      }
-                                echo '<div>
-                                <img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
-                                <h3 class="item-name">'.$row['name'].' '.$row['model'].'</h3><br>
-                                <label class="item-price">'.$txt.'</label><br><br>
-                                <p class="item-desc">'.$row['description'].'</p><br>
-                                <p class="item-fvalues">'.substr($row['fvalues'], 1, -1).'</p><br>
-                            </div>';
+                    }
+                                echo '<img class="item-img" src="img/'.$category_id.'/'.$row['name'].' = '.$row['model'].'.png" alt="phone image">
+                                <h3 class="item-name">'.$row['name'].' '.$row['model'].' | '.$txt.'</h3><br>
+                                <p class="item-desc">'.$row['description'].'</p>';
                     }
                 ?>
             </div>
             <div id="review">
             <label>Отзывы пользователей</label>
-            <hr>
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "kotalog");
                 mysqli_set_charset($conn, "utf8");
@@ -77,12 +70,36 @@
                     </div>';
                 }
                 ?>
+                <?php
+                include_once('session.php');
+                $deviceId = $_GET['id'];
+                if(isset($_SESSION['uniqueId'])) {
+                    echo
+                '<div id="myReview">
+                    <form id="data" action="comment.php" method="post">
+                        <input name="deviceId" value="'.$deviceId.'" style="display:none;">
+                        <p><b>Введите ваш отзыв:</b></p>
+                        <p><textarea rows="10" cols="45" name="text"  required></textarea></p>
+                        <p><b>Ваша оценка:</b></p>
+                        <select name ="mark">
+
+                            <option value="1"> 1 </option>
+                            <option value="2"> 2 </option>
+                            <option value="3"> 3 </option>
+                            <option value="4"> 4 </option>
+                            <option value="5"> 5 </option>
+                            
+                        </select>
+                        <p><button>Отправить</button></p>
+                    </form>
+                </div>';
+                }
+                ?>
             </div>
 
             <div id="stores">
                 <table id="table"> 
                     <label>Цена по магазинам</label>
-                    <hr>
                     <tr>
                         <th>Логотип</th>
                         <th>Название</th> 
