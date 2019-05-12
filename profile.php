@@ -25,18 +25,24 @@
 
             $query = "SELECT * from (SELECT favorites.id as fid, favorites.device as device, favorites.link as link from 
                 favorites left join users on favorites.user = users.id group by favorites.id) as q1 left join 
-                (SELECT devices.id as lol, categories.id as category, brands.name as brand, devices.model as model, min(summary.price) as price from 
-                devices left join brands on devices.brand = brands.id left join summary on devices.id = summary.device left join categories on devices.category = categories.id group by
+                (SELECT devices.id as lol, categories.id as category, brands.name as brand, devices.model as model, min(prices.price_now) as price1 from 
+                devices left join brands on devices.brand = brands.id left join summary on devices.id = summary.device left join prices on summary.price = prices.id left join categories on devices.category = categories.id group by
                 devices.id) as q2 on q1.device = q2.lol";
             
              $rows = mysqli_query($conn, $query);
              
              while($row = mysqli_fetch_assoc($rows)) {
+                 $txt = "";
+                 if(empty($row['price1'])) {
+                    $txt = "Нет в продаже";
+                 } else {
+                    $txt = "Лучшая цена: ".$row['price1']." грн.";
+                 }
                  echo '<div class="seen-item">
                     <a class = seen__ref href='.$row['link'].'> 
                     <img class="seen__img" src="img/'.$row['category'].'/'.$row['brand'].' = '.$row['model'].'.png" alt="phone image">
                     <h4 class ="seen__sign">'.$row['brand'].' '.$row['model'].'</h4>
-                    <span class="seen__price">'.$row['price'].' грн.</span></a><br>
+                    <span class="seen__price">'.$txt.'</span></a><br>
                     <button class="seen__button" onclick="deleteSeen('.$row['fid'].')"><img src="img/icons/delete.png"><label>Удалить</label></button>
                  </div>';
              }

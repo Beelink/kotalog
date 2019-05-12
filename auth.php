@@ -84,8 +84,8 @@
           
           <div>
               <!-- <input type="submit" class="auth-button" value="Войти" name="login"/> -->
-              <button type="submit" class="auth-button"name="login" ><img src="img/icons/login.png" ><label>Войти</label></button>
-              <button type="submit" class="auth-button"name="signup" ><img src="img/icons/register.png" ><label>Создать</label></button>
+              <button type="submit" class="auth-button" name="login" ><img src="img/icons/login.png" ><label>Войти</label></button>
+              <button type="submit" class="auth-button" name="signup" ><img src="img/icons/register.png" ><label>Создать</label></button>
               <!-- <input type="submit" class="auth-button" value="Зарегестрироваться" name="signup"/> -->
           </div>
       

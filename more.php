@@ -11,14 +11,16 @@
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <script type="text/javascript" src="load.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="graphs.js"></script>
 </head>
 <body>
     <header id="header"></header>
-
     <main id="main">
         <section class="device">
             <div id = "device">
                 <?php
+                include('session.php');
                     $conn = mysqli_connect("localhost", "root", "", "kotalog");
                     mysqli_set_charset($conn, "utf8");
                     $category_id = $_GET['category'];
@@ -30,7 +32,7 @@
 
                     while($row = mysqli_fetch_assoc($rows)) {
                     $id = $row['id'];
-                    $query2 = "SELECT min(price) as mi, max(price) as ma FROM summary WHERE device = '$id'";
+                    $query2 = "SELECT min(price_now) as mi, max(price_now) as ma FROM prices left join summary on summary.price = prices.id WHERE device = '$id'";
                     $a = mysqli_query($conn, $query2);
                     $b = "";
                     $c = "";
@@ -57,31 +59,91 @@
                     }
                 ?>
             </div>
-            <div id="review">
-            <label>Отзывы пользователей</label>
-            <hr>
-            <?php
-            include_once('session.php');
+            <div id="stores">
+                <table id="table"> 
+                    <label>Цена по магазинам</label>
+                    <hr>
+                    <tr>
+                        <th>Логотип</th>
+                        <th>Название</th> 
+                        <th>Акция</th>
+                        <th>Гарантия</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
+                    </tr>
+                    <?php
+                        $conn = mysqli_connect("localhost", "root", "", "kotalog");
+                        mysqli_set_charset($conn, "utf8");
+                        $device_id = $_GET['id'];
+                        $query = "SELECT stores.name as store, stores.link as link, brand, model, summary.price, summary.warranty as warranty, price_now,
+                            summary.promotion as promotion from summary left join prices on summary.price = prices.id left join stores on summary.store = stores.id left join 
+                            (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
+                            devices.brand = brands.id where devices.id = '$device_id') as d on summary.device = d.id where  summary.device = '$device_id'";
+                        $rows = mysqli_query($conn, $query);
 
-                $conn = mysqli_connect("localhost", "root", "", "kotalog");
-                mysqli_set_charset($conn, "utf8");
-                $category_id = $_GET['category'];
-                $device_id = $_GET['id'];
-                $query = "SELECT reviews.header as header, reviews.text as text, reviews.date as date, users.login as 'login', reviews.mark as mark FROM reviews LEFT JOIN users ON reviews.user = users.id where reviews.device = '$device_id'";
-                $rows = mysqli_query($conn, $query);
-
-                while($row = mysqli_fetch_assoc($rows)) {
-                    echo '<div class ="comment">
-                        <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
-                        <h3>'.$row['header'].'</h3>
-                        <span class = "comment__login">'.$row['login'].'</span>
-                        <p>'.$row['text'].'</p><br>
-                        <span class = "comment_date">'.$row['date'].'</span>
-                    </div>';
-                }
-                ?>
-                </div>
+                        $i = 0;
+                        while($row = mysqli_fetch_assoc($rows)) {
+                        echo '
+                        <tr>
+                            <td>
+                                <img class="stores__img" src="img/stores/'.$row['store'].'.jpg" alt="store image" title = "'.$row['store'].'">
+                            </td>
+                            <td>
+                                <span class="stores__name">'.$row['store'].'</span>
+                            </td>
+                            <td>
+                                <span class="stores__promotion">'.$row['promotion'].'</span>
+                            </td>
+                            <td>
+                                <span class="stores__warranty">'.$row['warranty'].'</span>
+                            </td>
+                            <td>
+                                <span class="stores__price">'.$row['price_now'].' грн.</span>
+                            </td>
+                            <td>
+                                <a class="stores__link" href="http://www.'.$row['link'].'">Перейти в магазин</a>
+                            </td>
+                        </tr>';
+                        // if($i >= $count) {
+                        //     break;
+                        //   } else {
+                        //     $i++;
+                        //   }
+                    }
+                    ?>
+                    <!-- <button onclick="showMore()">Показать еще...</button>-->
+                </table>
+                <div id="charts">
+                <canvas id="myChart" width="400" height="100"></canvas>
                 <?php
+                    echo '<script>updateBars('.$device_id.')</script>';
+                ?>
+            </div>
+            </div>
+            
+            <div id="review">
+                <label>Отзывы пользователей</label>
+                <hr>
+                <?php
+                    $conn = mysqli_connect("localhost", "root", "", "kotalog");
+                    mysqli_set_charset($conn, "utf8");
+                    $category_id = $_GET['category'];
+                    $device_id = $_GET['id'];
+                    $query = "SELECT reviews.header as header, reviews.text as text, reviews.date as date, users.login as 'login', reviews.mark as mark FROM reviews LEFT JOIN users ON reviews.user = users.id where reviews.device = '$device_id'";
+                    $rows = mysqli_query($conn, $query);
+
+                    while($row = mysqli_fetch_assoc($rows)) {
+                        echo '<div class ="comment">
+                            <img class="comment__img" src="img/smiles/'.$row['mark'].'.png" alt="mark image" title = "'.$row['mark'].'" style="width:24px; height:24px;>
+                            <h3>'.$row['header'].'</h3>
+                            <span class = "comment__login">'.$row['login'].'</span>
+                            <p>'.$row['text'].'</p><br>
+                            <span class = "comment_date">'.$row['date'].'</span>
+                        </div>';
+                    }
+                ?>
+            </div>
+            <?php
                 $deviceId = $_GET['id'];
                 if(isset($_SESSION['uniqueId'])) {
                     echo
@@ -107,69 +169,12 @@
                     </form>
                 </div>';
                 }
-                ?>
-            
-
-            <div id="stores">
-                <table id="table"> 
-                    <label>Цена по магазинам</label>
-                    <hr>
-                    <tr>
-                        <th>Логотип</th>
-                        <th>Название</th> 
-                        <th>Акция</th>
-                        <th>Гарантия</th>
-                        <th>Цена</th>
-                        <th>Действия</th>
-                    </tr>
-                    <?php
-                        $conn = mysqli_connect("localhost", "root", "", "kotalog");
-                        mysqli_set_charset($conn, "utf8");
-                        $device_id = $_GET['id'];
-                        $query = "SELECT stores.name as store, stores.link as link, brand, model, summary.price, summary.warranty as warranty, 
-                            summary.promotion as promotion from summary left join stores on summary.store = stores.id left join 
-                            (SELECT devices.id as id, brands.name as brand, devices.model as model from devices left join brands on 
-                            devices.brand = brands.id where devices.id = '$device_id') as d on summary.device = d.id where  summary.device = '$device_id'";
-                        $rows = mysqli_query($conn, $query);
-
-                        $i = 0;
-                        while($row = mysqli_fetch_assoc($rows)) {
-                        echo '
-                        <tr>
-                            <td>
-                                <img class="stores__img" src="img/stores/'.$row['store'].'.jpg" alt="store image" title = "'.$row['store'].'">
-                            </td>
-                            <td>
-                                <span class="stores__name">'.$row['store'].'</span>
-                            </td>
-                            <td>
-                                <span class="stores__promotion">'.$row['promotion'].'</span>
-                            </td>
-                            <td>
-                                <span class="stores__warranty">'.$row['warranty'].'</span>
-                            </td>
-                            <td>
-                                <span class="stores__price">'.$row['price'].' грн.</span>
-                            </td>
-                            <td>
-                                <a class="stores__graphic" href="/">Динамика цен</a>
-                                <a class="stores__link" href="http://www.'.$row['link'].'">Перейти в магазин</a>
-                            </td>
-                            
-                            
-                        </tr>';
-                        // if($i >= $count) {
-                        //     break;
-                        //   } else {
-                        //     $i++;
-                        //   }
-                    }
-                    ?>
-                    <!-- <button onclick="showMore()">Показать еще...</button>-->
-                </table>
-            <div>
+            ?>
         </section>
+        
     </main>
+    <script src="graphs.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 </body>
 </html>

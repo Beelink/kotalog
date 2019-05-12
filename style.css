@@ -515,6 +515,10 @@ hr {
     font-size: 24px;
 }
 
+#myReview {
+    float: right;
+}
+
 #myReview select {
     background-color: white;
     color: var(--color-top); 
@@ -576,8 +580,8 @@ hr {
 }
 
 #stores table {
-    margin-top: 16px;
-    width: 100%;
+    margin: 16px;
+    width: calc(100% - 32px);
     border-collapse: collapse;
 }
 
@@ -607,6 +611,14 @@ hr {
     text-align: center;
     margin-left: 8px;
     vertical-align: super;
+}
+
+#charts {
+    background-color: white;
+    padding: 16px;
+    margin: 16px;
+    width: calc(100% - 32px);
+    border: var(--px-border) solid var(--color-top);
 }
 
 /*
@@ -701,6 +713,20 @@ hr {
 
 .seen__button:hover {
     background-color: var(--color-active);
+}
+
+/*
+..######..##.....##....###....########..########..######.
+.##....##.##.....##...##.##...##.....##....##....##....##
+.##.......##.....##..##...##..##.....##....##....##......
+.##.......#########.##.....##.########.....##.....######.
+.##.......##.....##.#########.##...##......##..........##
+.##....##.##.....##.##.....##.##....##.....##....##....##
+..######..##.....##.##.....##.##.....##....##.....######.
+*/
+
+#charts {
+    display: block;
 }
 
 /*

@@ -24,7 +24,7 @@
     $i = 0;
     while($row = mysqli_fetch_assoc($rows)) {
       $id = $row['id'];
-      $query2 = "SELECT min(price) AS mi, max(price) AS ma FROM summary WHERE device = '$id'";
+      $query2 = "SELECT min(price_now) as mi, max(price_now) as ma FROM prices left join summary on summary.price = prices.id WHERE device = '$id'";
       $a = mysqli_query($conn, $query2);
       $b = "";
       $c = "";
