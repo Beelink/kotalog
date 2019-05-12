@@ -10,6 +10,7 @@
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <script type="text/javascript" src="load.js"></script>
+    <script src="Chart.min.js"></script>
 </head>
 <body>
     <header id="header"></header>
@@ -54,9 +55,14 @@
                 <button onclick="showMore()">Показать еще...</button>
             </div> -->
         </section>
+
+        <div class="rating" style="position: relative;">
+            <canvas id="brandsChart" style="height: 300px;"></canvas>
+        </div>
     </main>
 
     <script src="main.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
+    <script src="Chart.min.js"></script>
 </body>
 </html>

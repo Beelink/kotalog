@@ -87,15 +87,6 @@ function updateBars(deviceId) {
                                 borderColor: 'rgba(0, 0, 255, 1)',
                                 borderWidth: 2
                         }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
                     }
                 });
             } else {

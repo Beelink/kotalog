@@ -83,7 +83,6 @@ header span, header a {
 
 header input {
     transition: var(--speed-trans);
-    /* flex: 0 1 50%; */
     color: black;
     height: 32px;
     border-radius: var(--px-radius);
@@ -153,7 +152,7 @@ header .profile {
 }
 
 .filters {  
-    width: 300px;
+    width: 350px;
     border: var(--px-border) solid var(--color-top);
     margin: 32px 0;
     padding: 16px;
@@ -229,6 +228,28 @@ hr {
 }
 
 /*
+.########.....###....########.####.##....##..######..
+.##.....##...##.##......##.....##..###...##.##....##.
+.##.....##..##...##.....##.....##..####..##.##.......
+.########..##.....##....##.....##..##.##.##.##...####
+.##...##...#########....##.....##..##..####.##....##.
+.##....##..##.....##....##.....##..##...###.##....##.
+.##.....##.##.....##....##....####.##....##..######..
+*/
+
+.rating {  
+    width: 350px;
+    border: var(--px-border) solid var(--color-top);
+    margin: 32px 0;
+    padding: 16px;
+    background-color: var(--color-main);
+    border-radius: var(--px-radius) 0 0 var(--px-radius);
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
+    border-right: none;
+    position: relative;
+}
+
+/*
 .########..########.##.....##.####..######..########..######.
 .##.....##.##.......##.....##..##..##....##.##.......##....##
 .##.....##.##.......##.....##..##..##.......##.......##......
@@ -244,6 +265,7 @@ hr {
 
 .devices li {
     margin-left: 32px;
+    margin-right: 32px;
     margin-bottom: 32px;
     list-style: none;
     clear: both;
@@ -251,10 +273,10 @@ hr {
     background-color: var(--color-main);
     position: relative;
     display: inline-block;
-    width: calc(100% - 32px);
+    width: calc(100% - 64px);
     box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
-    border-radius: var(--px-radius) 0 0 var(--px-radius);
-    border-right: none;
+    border-radius: var(--px-radius);
+    /* border-right: none; */
     padding: 16px;
 }
 /* .devices li:first-child {
@@ -275,11 +297,11 @@ hr {
 .topbar, .botbar {
     background-color: var(--color-main);
     border: var(--px-border) solid var(--color-top); 
-    border-radius: var(--px-radius) 0 0 var(--px-radius);
+    border-radius: var(--px-radius);
     padding: 16px;
     margin: 32px;
-    margin-right: 0;
-    border-right: none;
+    /* margin-right: 0; */
+    /* border-right: none; */
     clear: both;
     box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
 }
@@ -728,6 +750,10 @@ hr {
 
 #charts {
     display: block;
+}
+
+#brandsChart{
+    height: 100%;
 }
 
 /*

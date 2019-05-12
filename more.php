@@ -11,7 +11,7 @@
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <script type="text/javascript" src="load.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="Chart.min.js"></script>
     <script type="text/javascript" src="graphs.js"></script>
 </head>
 <body>
@@ -114,11 +114,11 @@
                     <!-- <button onclick="showMore()">Показать еще...</button>-->
                 </table>
                 <div id="charts">
-                <canvas id="myChart" width="400" height="100"></canvas>
-                <?php
-                    echo '<script>updateBars('.$device_id.')</script>';
-                ?>
-            </div>
+                    <canvas id="myChart" width="400" height="100"></canvas>
+                    <?php
+                        echo '<script>updateBars('.$device_id.')</script>';
+                    ?>
+                </div>
             </div>
             
             <div id="review">
@@ -175,6 +175,6 @@
     </main>
     <script src="graphs.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="Chart.min.js"></script>
 </body>
 </html>

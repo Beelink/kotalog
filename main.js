@@ -183,6 +183,46 @@ function showMore() {
     changeCategory();
 }
 
+function updateBrandsChart() {
+    $.ajax({
+        url: 'brands.php',
+        type: 'post',
+        success: function(response) {
+            console.log(response);
+            var json = JSON.parse(response);
+            console.log(json); 
+
+            var brands = [];
+            var ratings = [];
+            for(var i = 0; i < json.length; i++) {
+                brands.push(json[i].brand);
+                ratings.push(json[i].rating);
+            }
+
+            var ctx = document.getElementById('brandsChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: brands,
+                    datasets: [
+                        {
+                            label: 'Рейтинг брендов',
+                            data: ratings,
+                            backgroundColor: 'rgba(255, 0, 0, 0.25)',
+                            borderColor: 'rgba(255, 0, 0, 1)',
+                            borderWidth: 2
+                        }]
+                },
+                options: {
+                    responsive: true, 
+                    maintainAspectRatio: false
+                    }
+            });
+        }  
+    });
+}
+
 $(document).ready(function() { 
     changeCategory();
+    updateBrandsChart();
 });
