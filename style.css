@@ -83,7 +83,7 @@ header span, header a {
 
 header input {
     transition: var(--speed-trans);
-    flex: 0 1 30%;
+    /* flex: 0 1 50%; */
     color: black;
     height: 32px;
     border-radius: var(--px-radius);
@@ -99,7 +99,7 @@ header input:focus {
 
 .header__menu {
     display: inline-block;
-    width: 400px;
+    /* width: 200px; */
     text-align: right;
 }
 
@@ -110,7 +110,7 @@ header input:focus {
 
 header .login label {
     display: inline-block;
-    margin-right: 16px;
+    margin-top: 32px;
     cursor: pointer;
 }
 
@@ -120,6 +120,7 @@ header .profile {
     cursor: pointer;
     vertical-align: super;
 }
+
 /*
 .########.####.##.......########.########.########...######.
 .##........##..##..........##....##.......##.....##.##....##
@@ -727,6 +728,71 @@ hr {
 
 #charts {
     display: block;
+}
+
+/*
+..######..########....###....########...######..##.....##
+.##....##.##.........##.##...##.....##.##....##.##.....##
+.##.......##........##...##..##.....##.##.......##.....##
+..######..######...##.....##.########..##.......#########
+.......##.##.......#########.##...##...##.......##.....##
+.##....##.##.......##.....##.##....##..##....##.##.....##
+..######..########.##.....##.##.....##..######..##.....##
+*/
+
+.search-result {
+    margin-top: 32px;
+    margin-right: 32px;
+    background-color: var(--color-main);
+    border-radius: var(--px-radius);
+    border: var(--px-border) solid var(--color-top);
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
+    cursor: pointer;
+    padding: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.search-result img {
+    width: 128px;
+    height: 128px;
+    padding: 16px;
+    background-color: white;
+    border: var(--px-border) solid var(--color-top);
+    text-decoration: none;
+}
+
+.search-result-label {
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--color-top);
+}
+
+#search-value {
+    box-shadow: 0 0 var(--px-shadow) var(--color-shadow);
+    padding: 16px;
+    background-color: var(--color-main);
+    border-radius: var(--px-radius);
+    border: var(--px-border) solid var(--color-top);
+    margin: 32px;
+    margin-bottom: -24px;
+}
+
+#search-value label {
+    font-size: 24px;
+}
+
+#search-btn {
+    background-color: transparent;
+    border: none;
+    
+}
+
+#search-btn img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: -8px;
 }
 
 /*

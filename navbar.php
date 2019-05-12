@@ -5,7 +5,10 @@
         <span class="header__logo__slogan">Електронный сервис сравнения цен</span>   
     </div>
 </a>
-<input type="text" class="header__search" placeholder="Поиск">
+<form action="search.php" method="POST">
+    <input type="text" class="header__search" name="search" placeholder="Поиск">
+    <button id="search-btn"><img src="img/icons/search.png"></button>
+</form>
 <nav>
     <ul class="header__menu">                 
     <?php
